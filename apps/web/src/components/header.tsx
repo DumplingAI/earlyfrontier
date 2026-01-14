@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
-import { ModeToggle } from "./mode-toggle";
+import { Github } from "lucide-react";
 
 const navLinks = [
   { to: "/use-cases", label: "Use Cases" },
@@ -10,6 +9,7 @@ const navLinks = [
   { to: "/integrations", label: "Integrations" },
   { to: "/guides", label: "Guides" },
   { to: "/resources", label: "Resources" },
+  { to: "/about", label: "About" },
 ] as const;
 
 export default function Header() {
@@ -35,12 +35,16 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="/use-cases/claude-code"
+            href="https://github.com/DumplingAI/earlyfrontier"
+            target="_blank"
+            rel="noreferrer"
             className="hidden rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40 md:inline-flex"
           >
-            Claude Code
+            <span className="inline-flex items-center gap-2">
+              <Github className="size-4" />
+              Github
+            </span>
           </Link>
-          <ModeToggle />
         </div>
       </div>
     </div>

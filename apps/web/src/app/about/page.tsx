@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About | Early Frontier",
-  description: "We document emerging AI agent use cases and turn them into practical playbooks.",
+  description:
+    "Early Frontier is an open-source library of AI agent use cases, workflows, and operator playbooks.",
 };
 
 const pillars = [
@@ -14,16 +15,19 @@ const pillars = [
 
 const coverage = [
   {
-    title: "Claude Code workflows",
-    description: "From codebase onboarding to refactors, each playbook includes prompts, checks, and handoff notes.",
+    title: "Agent workflows",
+    description:
+      "Step-by-step playbooks for real tasks, with prompts, checks, and handoff notes.",
   },
   {
-    title: "MCP integrations",
-    description: "How to connect models to tools, plus real-world examples from email, docs, and ticket systems.",
+    title: "Tool integrations",
+    description:
+      "How to connect models to tools, plus examples from email, docs, and ticket systems.",
   },
   {
     title: "Operator playbooks",
-    description: "Repeatable processes for research, planning, and coordination across teams.",
+    description:
+      "Repeatable processes for research, planning, and coordination across teams.",
   },
 ] as const;
 
@@ -40,13 +44,19 @@ const audience = [
   "Founders and product leads evaluating AI investments",
 ] as const;
 
+const contribute = [
+  "Add or improve a workflow with clear steps, inputs, and expected outputs.",
+  "Submit corrections when tools, pricing, or product behavior changes.",
+  "Share real-world examples, templates, or screenshots that make guides concrete.",
+] as const;
+
 export default function AboutPage() {
   return (
     <PageShell
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
       eyebrow="About"
       title="Early Frontier"
-      description="We document emerging AI agent use cases and turn them into practical playbooks."
+      description="An open-source library of AI agent use cases, workflows, and operator playbooks."
     >
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Editorial policy</h2>
@@ -106,6 +116,31 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+      </section>
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">How to contribute</h2>
+        <p className="text-sm text-muted-foreground">
+          Early Frontier is maintained in public. Contributions that add clarity,
+          examples, or updated tooling guidance are welcome.
+        </p>
+        <div className="grid gap-3 text-sm text-muted-foreground">
+          {contribute.map((item) => (
+            <div
+              key={item}
+              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+        <a
+          href="https://github.com/DumplingAI/earlyfrontier"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex w-fit items-center rounded-full border border-foreground/20 px-5 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+        >
+          Visit the GitHub repo
+        </a>
       </section>
     </PageShell>
   );

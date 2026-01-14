@@ -1,43 +1,49 @@
-# earlyfrontier
+# Early Frontier
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Self, and more.
+Early Frontier is an open-source library of AI agent use cases, workflows, and
+operator playbooks. The goal is to publish practical, testable guides with clear
+steps, inputs, and expected outputs so teams can apply agent tooling safely.
 
-## Features
+Repository: https://github.com/DumplingAI/earlyfrontier
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **Turborepo** - Optimized monorepo build system
+## What’s inside
 
-## Getting Started
+- **apps/web** - Next.js site for the public library
+- **packages/api** - Shared API layer / business logic
+- **specs** - Planning and reference materials
 
-First, install the dependencies:
+## Getting started
+
+Install dependencies:
 
 ```bash
 bun install
 ```
 
-Then, run the development server:
+Run the dev server:
 
 ```bash
 bun run dev
 ```
 
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the fullstack application.
+Open http://localhost:3001 in your browser.
 
-## Project Structure
+## Contributing
 
-```
-earlyfrontier/
-├── apps/
-│   └── web/         # Fullstack application (Next.js)
-├── packages/
-│   ├── api/         # API layer / business logic
-```
+We welcome contributions that add clarity, real examples, or updated tooling guidance.
 
-## Available Scripts
+Good ways to help:
+- Add or improve a workflow with steps, inputs, and expected outputs
+- Update guides when tools or behavior change
+- Share concrete examples, templates, or screenshots
 
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run check-types`: Check TypeScript types across all apps
+If you’re not sure where to start, open an issue with the change you’d like to
+make and the page it affects.
+
+See CONTRIBUTING.md for detailed guidelines.
+
+## Scripts
+
+- `bun run dev` - Start all applications in development mode
+- `bun run build` - Build all applications
+- `bun run check-types` - Check TypeScript types across all apps
