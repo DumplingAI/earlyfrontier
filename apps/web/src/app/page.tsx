@@ -1,4 +1,9 @@
-"use client";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Early Frontier - AI Agent Use Cases",
+  description:
+    "A draft site architecture and learning hub for new AI agent use cases, starting with Claude Code workflows and productivity playbooks.",
+};
 
 const featuredWorkflows = [
   {

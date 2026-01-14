@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refactoring | Early Frontier",
+  description: "Modernize legacy code without breaking existing behavior.",
+};
 
 const overview = {
   description:
-    "Refactoring legacy code is risky without the right tools and process. Claude Code helps you modernize outdated patterns, improve code structure, and eliminate technical debt while maintaining backward compatibility. Instead of manually rewriting code and risking breaking changes, you can leverage Claude to analyze dependencies, suggest safe transformations, and execute changes incrementally.",
-  when: "Use this workflow when modernizing legacy codebases, eliminating code duplication, adopting new language features, restructuring for better maintainability, or preparing code for new requirements.",
+    "Refactoring legacy code is risky without a staged plan. Claude Code helps you modernize patterns, reduce duplication, and improve structure while preserving behavior and compatibility. Use it to analyze dependencies and execute changes incrementally.",
+  when: "Use this workflow when modernizing legacy code, removing duplication, adopting new language features, or restructuring for maintainability.",
 } as const;
 
 const steps = [
@@ -31,9 +37,9 @@ const steps = [
   {
     step: "Run tests and check performance",
     description:
-      "Validate that functionality remains unchanged and performance hasn't degraded. Look for edge cases that tests might not cover.",
+      "Validate that functionality remains unchanged and performance hasn’t degraded. Identify edge cases not covered by tests.",
     example:
-      '"Run the full test suite and check if there are any performance regressions. Also identify any edge cases that our tests don\'t currently cover."',
+      '"Run the full test suite and list any performance regressions. Identify edge cases missing from tests."',
   },
 ] as const;
 

@@ -1,17 +1,23 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Email and Calendar Management | Early Frontier",
+  description: "Connect Claude Code to Gmail and Google Calendar to automate scheduling, inbox triage, and email workflows.",
+};
 
 const prerequisites = [
   {
-    title: "Gmail MCP Server",
-    description: "Install and configure the Gmail MCP server for email access",
+    title: "Email and Calendar access",
+    description: "Decide between browser automation (Claude in Chrome) or MCP API access",
   },
   {
-    title: "Google Calendar MCP Server",
-    description: "Install and configure the Calendar MCP server for scheduling",
-  },
-  {
-    title: "OAuth Authentication",
+    title: "OAuth Authentication (for MCP)",
     description: "Set up OAuth credentials for Google Workspace API access",
+  },
+  {
+    title: "Approval workflow",
+    description: "Require review before sending emails or creating events",
   },
 ] as const;
 
@@ -111,21 +117,27 @@ const useCaseExamples = [
 
 const configuration = [
   {
-    step: "Install MCP servers",
+    step: "Choose your access method",
     details:
-      "Install the Gmail and Google Calendar MCP servers using npm or your package manager.",
-    code: "npm install @modelcontextprotocol/server-gmail @modelcontextprotocol/server-google-calendar",
+      "Use Claude in Chrome for browser-based automation, or MCP servers for API-level access and structured queries.",
+    code: undefined as string | undefined,
   },
   {
     step: "Set up OAuth credentials",
     details:
-      "Create a Google Cloud project, enable Gmail and Calendar APIs, and download OAuth credentials JSON.",
+      "Create a Google Cloud project, enable Gmail and Calendar APIs, and download OAuth credentials JSON (for MCP).",
+    code: undefined as string | undefined,
+  },
+  {
+    step: "Install an MCP server (optional)",
+    details:
+      "Choose a Gmail/Calendar MCP server from official or community sources and configure it with your OAuth credentials.",
     code: undefined as string | undefined,
   },
   {
     step: "Configure Claude Code",
     details:
-      "Add the MCP servers to your Claude Code configuration file with the OAuth credentials path.",
+      "If using MCP, add the servers to your Claude Code configuration file with the OAuth credentials path.",
     code: undefined as string | undefined,
   },
   {
@@ -190,6 +202,7 @@ const related = [
   { title: "Inbox Triage Workflow", path: "/workflows/claude-code/inbox-triage" },
   { title: "Task Management", path: "/use-cases/claude-code/task-management" },
   { title: "MCP Integrations", path: "/use-cases/claude-code/mcp-integrations" },
+  { title: "Claude in Chrome", path: "/guides/claude-in-chrome" },
 ] as const;
 
 export default function ClaudeCodeEmailCalendarPage() {
@@ -215,10 +228,9 @@ export default function ClaudeCodeEmailCalendarPage() {
           constant context switching between your terminal and email client.
         </p>
         <p className="text-sm text-muted-foreground">
-          Using MCP servers for Gmail and Google Calendar, Claude Code can read
-          emails, search threads, draft replies, check availability, create events,
-          and manage your schedule. You maintain full control with review steps
-          before any emails are sent or calendar changes are made.
+          Use Claude in Chrome for fast, UI-driven automation, or MCP servers for
+          structured API access. In both cases, keep approval steps for drafts
+          and event creation so you stay in control.
         </p>
       </section>
 

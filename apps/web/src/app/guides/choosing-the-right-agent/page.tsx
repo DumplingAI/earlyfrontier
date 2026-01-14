@@ -1,43 +1,41 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Choosing the Right AI Agent | Early Frontier",
+  description: "A decision framework for selecting the best agent setup for your workflow.",
+};
 
 const tldr = [
-  "Match the agent to your workflow complexity",
-  "Consider tool integration needs first",
-  "Balance speed vs accuracy for your use case",
-  "Factor in team onboarding and adoption",
-  "Start simple, scale up as needs grow",
-  "Multiple agents can work together",
+  "Match the agent to workflow complexity",
+  "Decide if you need external tools",
+  "Balance accuracy vs speed",
+  "Plan for team onboarding and governance",
+  "Start small and expand",
+  "Mix agents by phase if needed",
 ] as const;
 
 const workflowComplexity = [
   {
     level: "Simple Workflows",
     description:
-      "Single-step, predictable tasks like code completion, formatting, or simple refactoring.",
+      "Single-step, predictable tasks like code completion, formatting, or small refactors.",
     examples: ["Autocomplete functions", "Fix linting errors", "Add type hints"],
-    recommended: "GitHub Copilot, IDE extensions",
+    recommended: "Inline assistants or IDE completions",
   },
   {
     level: "Medium Workflows",
     description:
-      "Multi-step tasks requiring some context and decision-making across a few files.",
-    examples: [
-      "Implement a new feature",
-      "Debug cross-file issues",
-      "Write test suites",
-    ],
-    recommended: "Cursor, Claude Code (standard mode)",
+      "Multi-step tasks that need some context and reasoning across a few files.",
+    examples: ["Implement a feature", "Debug a cross-file issue", "Write tests"],
+    recommended: "IDE agents with project context",
   },
   {
     level: "Complex Workflows",
     description:
-      "Multi-file changes requiring deep understanding, architecture decisions, and planning.",
-    examples: [
-      "System refactoring",
-      "Architecture changes",
-      "Complex debugging",
-    ],
-    recommended: "Claude Code with planning, agents with extended context",
+      "Multi-file changes requiring deep understanding, planning, and architecture decisions.",
+    examples: ["System refactor", "Architecture changes", "Complex debugging"],
+    recommended: "CLI agents with planning workflows",
   },
 ] as const;
 
@@ -46,63 +44,62 @@ const integrationNeeds = [
     category: "No External Tools",
     description: "Pure code generation and editing without external data access.",
     useCase: "Standard development tasks within your IDE or editor.",
-    agents: "Basic code assistants, GitHub Copilot, inline completion tools",
+    agents: "Inline completion or IDE agents",
   },
   {
-    category: "IDE & Dev Tools",
+    category: "Dev Tools Access",
     description: "Git, package managers, build systems, and terminal commands.",
     useCase: "Full development workflows with version control and builds.",
-    agents: "Cursor, IDE-integrated agents, Claude Code",
+    agents: "CLI agents or IDE agents with terminal integration",
   },
   {
     category: "External Data & Services",
-    description:
-      "Databases, APIs, file systems, web search, email, calendars, and custom tools.",
-    useCase: "Workflows requiring real data access or external service integration.",
-    agents: "MCP-enabled agents like Claude Code with MCP servers",
+    description: "Databases, APIs, file systems, web search, email, calendars.",
+    useCase: "Workflows that require real data access or external actions.",
+    agents: "MCP-capable agents with server integrations",
   },
 ] as const;
 
 const agentComparison = [
   {
-    agent: "Claude Code",
+    agent: "Inline completion",
     strengths: [
-      "MCP support for external tools",
-      "Planning mode for complex tasks",
-      "Large context window",
-      "Multi-file editing",
-    ],
-    bestFor: "Complex development workflows, external data integration",
-  },
-  {
-    agent: "Cursor",
-    strengths: [
-      "IDE-native experience",
-      "Fast inline completion",
-      "Multi-file context",
-      "Familiar VS Code interface",
-    ],
-    bestFor: "Medium complexity tasks, developers wanting IDE integration",
-  },
-  {
-    agent: "GitHub Copilot",
-    strengths: [
-      "Excellent code completion",
       "Fast suggestions",
-      "Wide IDE support",
-      "Trained on GitHub code",
+      "Low setup overhead",
+      "Great for boilerplate",
+      "Lives inside your editor",
     ],
-    bestFor: "Code completion, repetitive tasks, simple refactoring",
+    bestFor: "Simple tasks and rapid iteration",
   },
   {
-    agent: "ChatGPT Code Interpreter",
+    agent: "IDE agent",
     strengths: [
-      "Data analysis capabilities",
-      "File upload and processing",
-      "Python execution",
-      "Visualization generation",
+      "Project-wide context",
+      "Multi-file edits",
+      "Familiar UI",
+      "Interactive debugging",
     ],
-    bestFor: "Data science, analysis, prototyping, learning",
+    bestFor: "Medium complexity feature work",
+  },
+  {
+    agent: "CLI agent",
+    strengths: [
+      "Deep planning",
+      "Terminal workflows",
+      "Scriptable automation",
+      "Works well with MCP",
+    ],
+    bestFor: "Complex refactors, pipelines, and integrations",
+  },
+  {
+    agent: "Generalist assistant with tools",
+    strengths: [
+      "Data analysis",
+      "File processing",
+      "Summaries and reports",
+      "Multi-modal workflows",
+    ],
+    bestFor: "Research, analysis, and mixed workflows",
   },
 ] as const;
 
@@ -110,114 +107,114 @@ const practicalScenarios = [
   {
     scenario: "Solo Developer - Personal Project",
     needs: [
-      "Rapid iteration and experimentation",
-      "Minimal setup overhead",
-      "Cost-effective solution",
+      "Rapid iteration",
+      "Minimal setup",
+      "Cost-efficient",
     ],
-    recommendation: "Claude Code",
+    recommendation: "IDE agent + inline completion",
     reasoning:
-      "Start with Claude Code for its balance of power and simplicity. Use MCP servers for any external data needs. The learning curve is minimal, and you can scale complexity as your project grows.",
+      "Start with low-overhead tools and add a CLI agent only if you need planning or automation.",
   },
   {
     scenario: "Startup Team - Fast Iteration",
     needs: [
       "Quick feature development",
       "External API integration",
-      "Shared team workflows",
+      "Shared workflows",
     ],
-    recommendation: "Claude Code + Cursor hybrid",
+    recommendation: "CLI agent for planning + IDE agents for execution",
     reasoning:
-      "Use Claude Code for complex features requiring planning and external data. Use Cursor for quick edits and standard development. Share MCP configurations and Claude.md files across the team.",
+      "Use a planning-focused CLI agent for architecture and integrations, and IDE agents for day-to-day coding.",
   },
   {
     scenario: "Enterprise Team - Production System",
     needs: [
-      "High accuracy requirements",
+      "High accuracy",
       "Code review workflows",
       "Security and compliance",
-      "Team standardization",
+      "Standardization",
     ],
-    recommendation: "Claude Code with guardrails + GitHub Copilot",
+    recommendation: "CLI agent with guardrails + inline completion",
     reasoning:
-      "Claude Code for architectural changes with mandatory plan review. GitHub Copilot for autocomplete. Implement hooks for automated testing and security checks. Document standards in shared Claude.md files.",
+      "Use planning + approvals for risky changes and keep fast completion tools for low-risk edits.",
   },
   {
     scenario: "Data Science - Analysis Work",
     needs: [
-      "Data access and querying",
-      "Visualization generation",
-      "Jupyter notebook support",
-      "Statistical analysis",
+      "Data access",
+      "Visualization",
+      "Notebook-friendly tooling",
+      "Exploratory analysis",
     ],
-    recommendation: "Claude Code with database MCP servers",
+    recommendation: "Generalist assistant with tools + database integrations",
     reasoning:
-      "Connect PostgreSQL or SQLite MCP servers for direct database access. Use filesystem servers for data file analysis. Claude's strong reasoning capabilities help with complex analysis tasks.",
+      "Focus on tools that handle data, notebooks, and repeatable analysis pipelines.",
   },
   {
     scenario: "Learning & Education",
     needs: [
-      "Code explanation and learning",
+      "Explanations",
       "Step-by-step guidance",
-      "Concept understanding",
-      "Low cost or free tier",
+      "Low cost",
+      "Easy onboarding",
     ],
-    recommendation: "ChatGPT + GitHub Copilot free tier",
+    recommendation: "Generalist assistant + inline completion",
     reasoning:
-      "ChatGPT provides detailed explanations and learning support. GitHub Copilot free tier (for students/educators) helps with practical coding. Both are beginner-friendly with low barriers to entry.",
+      "Use an explainer-friendly assistant for concepts and a lightweight completion tool for practice.",
   },
 ] as const;
 
 const decisionQuestions = [
   {
-    question: "Do you need to access external data or services?",
-    yes: "Choose MCP-enabled agents like Claude Code. Set up MCP servers for your specific data sources.",
-    no: "Basic code assistants like GitHub Copilot or Cursor will meet your needs.",
+    question: "Do you need external data or tool access?",
+    yes: "Use an MCP-capable agent and start with read-only integrations.",
+    no: "Inline or IDE agents are usually enough.",
   },
   {
-    question: "Are you working across many files or making architectural changes?",
-    yes: "Use Claude Code with planning mode. The extended context and planning capabilities are essential.",
-    no: "Inline completion tools or standard IDE-integrated agents work well for isolated changes.",
+    question: "Are you making multi-file or architectural changes?",
+    yes: "Choose a planning-capable CLI agent and use a plan-first workflow.",
+    no: "Inline or IDE tools are typically sufficient.",
   },
   {
-    question: "Does your team need to standardize on shared workflows?",
-    yes: "Invest in Claude Code with shared configurations, hooks, and Claude.md files for consistency.",
-    no: "Individual developers can choose tools that match their preferences and workflows.",
+    question: "Does your team need standardized workflows?",
+    yes: "Adopt shared configs, templates, and review gates.",
+    no: "Individual choices are fine if outputs remain compatible.",
   },
   {
-    question: "Is accuracy more important than speed for your use case?",
-    yes: "Use Claude Code with plan-first workflows and code review steps. Implement automated testing hooks.",
-    no: "Fast completion tools like GitHub Copilot optimize for speed while maintaining good accuracy.",
+    question: "Is accuracy more important than speed?",
+    yes: "Favor plan-first workflows and human review steps.",
+    no: "Use faster tools and optimize for iteration speed.",
   },
 ] as const;
 
 const bestPractices = [
-  "Start with one agent and expand only when you hit clear limitations",
-  "Trial multiple agents with the same task to compare results",
-  "Measure productivity impact before and after adoption",
-  "Document your chosen setup and workflows for team consistency",
-  "Combine agents for different use cases rather than forcing one tool for everything",
+  "Trial multiple agents on the same task to compare outcomes",
+  "Start with one tool, then add another only when you hit a limit",
+  "Measure impact with before/after metrics",
+  "Document your chosen setup for team onboarding",
+  "Combine tools by phase (plan → execute → review)",
 ] as const;
 
 const commonMistakes = [
   {
     mistake: "Choosing based on hype alone",
     solution:
-      "Evaluate based on your actual workflows, not trending discussions. What works for others may not fit your needs.",
+      "Evaluate with your actual workflows and constraints. What works for others may not fit your team.",
   },
   {
-    mistake: "Ignoring team skill levels",
+    mistake: "Ignoring onboarding cost",
     solution:
-      "Consider learning curves and onboarding time. The most powerful tool is useless if your team can't adopt it.",
+      "Powerful tools fail if the team can’t adopt them. Prioritize usability and training.",
   },
   {
     mistake: "Over-engineering the setup",
     solution:
-      "Start simple with basic features. Add MCP servers, hooks, and custom configurations only when you have clear use cases.",
+      "Begin simple. Add integrations, hooks, and automation only when they solve a clear pain point.",
   },
   {
-    mistake: "Not considering integration needs upfront",
+    mistake: "Not thinking about governance",
     solution:
-      "Map out your external data sources and tools first. Retrofitting integrations later is harder than planning from the start.",
+      "If automation can change production systems, plan for approvals, logs, and access control early.",
   },
 ] as const;
 
@@ -241,17 +238,15 @@ export default function ChoosingTheRightAgentPage() {
           <h2 className="font-serif text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          The AI agent landscape in 2026 offers many powerful options. Claude Code,
-          Cursor, GitHub Copilot, ChatGPT, and others each excel in different
-          scenarios. Choosing the right agent isn't about finding the "best"
-          tool—it's about matching capabilities to your specific workflow, team
-          needs, and integration requirements.
+          Choosing the right agent isn’t about a single “best” tool. It’s about
+          matching capabilities to your workflow complexity, integration needs,
+          and governance requirements. This guide gives a practical framework to
+          evaluate options and build a stack that fits your team.
         </p>
         <p className="text-sm text-muted-foreground">
-          This guide provides a practical decision framework. We'll cover workflow
-          complexity, tool integration needs, accuracy requirements, and team
-          adoption considerations. By the end, you'll know which agent fits your
-          use case and how to get started.
+          We’ll cover workflow complexity, external tool access, accuracy vs
+          speed tradeoffs, and team adoption. Use this to pick a starting point
+          and evolve your setup as needs grow.
         </p>
       </section>
 
@@ -270,88 +265,82 @@ export default function ChoosingTheRightAgentPage() {
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Workflow complexity levels</h2>
-        <div className="grid gap-4">
+        <h2 className="font-serif text-2xl">Match workflow complexity</h2>
+        <div className="grid gap-4 md:grid-cols-3">
           {workflowComplexity.map((item) => (
             <div
               key={item.level}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{item.level}</h3>
+              <h3 className="font-serif text-lg">{item.level}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
-              <div className="mt-3">
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                  Examples
-                </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {item.examples.map((example) => (
-                    <span
-                      key={example}
-                      className="rounded-full bg-background/50 px-3 py-1 text-xs text-muted-foreground"
-                    >
-                      {example}
-                    </span>
-                  ))}
-                </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {item.examples.map((example) => (
+                  <span
+                    key={example}
+                    className="rounded-full bg-background/60 px-2 py-1 text-xs text-muted-foreground"
+                  >
+                    {example}
+                  </span>
+                ))}
               </div>
-              <div className="mt-3 text-sm">
+              <p className="mt-3 text-sm text-muted-foreground">
                 <span className="text-muted-foreground/70">Recommended: </span>
-                <span className="text-foreground">{item.recommended}</span>
-              </div>
+                {item.recommended}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Tool integration needs</h2>
-        <div className="grid gap-4 md:grid-cols-3">
+        <h2 className="font-serif text-2xl">Integration needs</h2>
+        <div className="grid gap-4">
           {integrationNeeds.map((item) => (
             <div
               key={item.category}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <div className="mb-2 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                {item.category}
-              </div>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-              <div className="mt-3 text-xs text-muted-foreground/70">
-                Use case: {item.useCase}
-              </div>
-              <div className="mt-3 text-sm font-medium">{item.agents}</div>
+              <h3 className="font-serif text-lg">{item.category}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {item.description}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                <span className="text-muted-foreground/70">Use case: </span>
+                {item.useCase}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                <span className="text-muted-foreground/70">Agents: </span>
+                {item.agents}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Agent comparison</h2>
+        <h2 className="font-serif text-2xl">Agent types at a glance</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {agentComparison.map((item) => (
             <div
               key={item.agent}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{item.agent}</h3>
-              <div className="mt-3">
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                  Strengths
-                </div>
-                <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-                  {item.strengths.map((strength) => (
-                    <li key={strength} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
-                      <span>{strength}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mt-3 text-sm">
+              <h3 className="font-serif text-lg">{item.agent}</h3>
+              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                {item.strengths.map((strength) => (
+                  <li key={strength} className="flex items-start gap-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
+                    <span>{strength}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-sm text-muted-foreground">
                 <span className="text-muted-foreground/70">Best for: </span>
-                <span className="text-foreground">{item.bestFor}</span>
-              </div>
+                {item.bestFor}
+              </p>
             </div>
           ))}
         </div>
@@ -360,43 +349,36 @@ export default function ChoosingTheRightAgentPage() {
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Practical scenarios</h2>
         <div className="grid gap-4">
-          {practicalScenarios.map((item) => (
+          {practicalScenarios.map((scenario) => (
             <div
-              key={item.scenario}
+              key={scenario.scenario}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{item.scenario}</h3>
-              <div className="mt-3 grid gap-3 md:grid-cols-2">
-                <div>
-                  <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                    Needs
-                  </div>
-                  <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-                    {item.needs.map((need) => (
-                      <li key={need} className="flex items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
-                        <span>{need}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                    Recommendation
-                  </div>
-                  <div className="mt-2 font-medium">{item.recommendation}</div>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {item.reasoning}
-                  </p>
-                </div>
+              <h3 className="font-serif text-lg">{scenario.scenario}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {scenario.needs.map((need) => (
+                  <span
+                    key={need}
+                    className="rounded-full bg-background/60 px-2 py-1 text-xs text-muted-foreground"
+                  >
+                    {need}
+                  </span>
+                ))}
               </div>
+              <p className="mt-3 text-sm text-muted-foreground">
+                <span className="text-muted-foreground/70">Recommendation: </span>
+                {scenario.recommendation}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {scenario.reasoning}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Decision questions</h2>
+        <h2 className="font-serif text-2xl">Decision checklist</h2>
         <div className="grid gap-4">
           {decisionQuestions.map((item) => (
             <div
@@ -404,20 +386,14 @@ export default function ChoosingTheRightAgentPage() {
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
               <h3 className="font-serif text-lg">{item.question}</h3>
-              <div className="mt-3 grid gap-3 md:grid-cols-2">
-                <div>
-                  <div className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-green-600/80">
-                    Yes
-                  </div>
-                  <p className="text-sm text-muted-foreground">{item.yes}</p>
-                </div>
-                <div>
-                  <div className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-orange-600/80">
-                    No
-                  </div>
-                  <p className="text-sm text-muted-foreground">{item.no}</p>
-                </div>
-              </div>
+              <p className="mt-2 text-sm text-muted-foreground">
+                <span className="font-medium">Yes: </span>
+                {item.yes}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                <span className="font-medium">No: </span>
+                {item.no}
+              </p>
             </div>
           ))}
         </div>
@@ -426,44 +402,31 @@ export default function ChoosingTheRightAgentPage() {
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
-          {bestPractices.map((practice) => (
+          {bestPractices.map((item) => (
             <div
-              key={practice}
+              key={item}
               className="glass-card rounded-xl border border-border/70 px-4 py-3"
             >
-              {practice}
+              {item}
             </div>
           ))}
         </div>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Common mistakes to avoid</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+        <h2 className="font-serif text-2xl">Common mistakes</h2>
+        <div className="grid gap-4">
           {commonMistakes.map((item) => (
             <div
               key={item.mistake}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
               <h3 className="font-serif text-lg">{item.mistake}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{item.solution}</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {item.solution}
+              </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-foreground p-10 text-background md:p-12">
-        <h2 className="font-serif text-3xl">Try the framework</h2>
-        <p className="max-w-3xl text-sm text-background/80">
-          Work through the decision questions and scenarios above with your specific
-          use case in mind. Start with one agent, test it on real tasks, and expand
-          or switch as your needs evolve. The right choice today can change as your
-          workflows mature.
-        </p>
-        <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-background/70">
-          <span>Workflows</span>
-          <span>Use cases</span>
-          <span>Integrations</span>
         </div>
       </section>
     </PageShell>

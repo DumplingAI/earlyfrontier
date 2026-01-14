@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Meeting Summaries | Early Frontier",
+  description: "Turn transcripts into clear updates with action items.",
+};
 
 const overview = {
   description:
-    "Meetings generate valuable information, but manually documenting key decisions and action items is tedious and error-prone. Claude Code transforms meeting transcripts and notes into structured summaries, extracting decisions, action items, and follow-ups. Instead of spending 30 minutes after each meeting writing up notes, you can focus on the work that matters while Claude handles the documentation.",
-  when: "Use this workflow after team meetings, client calls, brainstorming sessions, retrospectives, or any discussion where capturing decisions and next steps is important.",
+    "Meetings generate valuable information, but documenting decisions and action items is time-consuming. Claude Code turns transcripts into structured summaries, extracting decisions, owners, and follow-ups. Share summaries for confirmation before sending widely.",
+  when: "Use this workflow after team meetings, client calls, brainstorming sessions, retrospectives, or any discussion where decisions and next steps matter.",
 } as const;
 
 const steps = [

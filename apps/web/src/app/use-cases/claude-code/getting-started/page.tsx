@@ -1,26 +1,48 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Getting Started with Claude Code | Early Frontier",
+  description: "Everything you need to install, configure, and run your first successful Claude Code session.",
+};
 
 const prerequisites = [
-  { item: "Node.js 18+", description: "Required for Claude Code installation" },
-  { item: "Git", description: "For version control integration" },
-  { item: "Claude account", description: "Sign up at claude.ai" },
+  { item: "macOS, Linux, or Windows (WSL/Git for Windows)", description: "Supported platforms for Claude Code" },
+  { item: "Node.js 18+", description: "Required for npm installation method" },
+  { item: "4GB+ RAM", description: "Minimum hardware requirement" },
+  { item: "Internet connection", description: "Required for authentication and AI processing" },
 ] as const;
 
 const installationSteps = [
   {
-    step: "Install Claude Code CLI",
-    command: "npm install -g claude-code",
-    description: "Install globally to make the claude command available system-wide",
+    step: "Standard (npm) install",
+    command: "npm install -g @anthropic-ai/claude-code",
+    description: "Recommended standard installation. Do not use sudo with npm install -g.",
   },
   {
-    step: "Authenticate",
-    command: "claude auth login",
-    description: "Follow prompts to authenticate with your Claude account",
+    step: "Native install (macOS/Linux)",
+    command: "curl -fsSL https://claude.ai/install.sh | bash",
+    description: "Native installer for macOS, Linux, and WSL.",
+  },
+  {
+    step: "Homebrew (macOS/Linux)",
+    command: "brew install --cask claude-code",
+    description: "Install via Homebrew cask.",
+  },
+  {
+    step: "Windows PowerShell",
+    command: "irm https://claude.ai/install.ps1 | iex",
+    description: "Native installer for Windows PowerShell.",
+  },
+  {
+    step: "Windows CMD",
+    command: "curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd",
+    description: "Native installer for Windows Command Prompt.",
   },
   {
     step: "Verify installation",
     command: "claude --version",
-    description: "Confirm Claude Code is installed and accessible",
+    description: "Confirm Claude Code is installed and accessible.",
   },
 ] as const;
 
@@ -144,6 +166,11 @@ const nextSteps = [
     path: "/use-cases/claude-code/mcp-integrations",
     description: "Connect external tools to expand capabilities"
   },
+  {
+    title: "Use Claude in Chrome",
+    path: "/guides/claude-in-chrome",
+    description: "Automate browser workflows and learn when to use MCP"
+  },
 ] as const;
 
 export default function ClaudeCodeGettingStartedPage() {
@@ -191,6 +218,21 @@ export default function ClaudeCodeGettingStartedPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Browser automation option</h2>
+        <p className="text-sm text-muted-foreground">
+          If you prefer to automate workflows inside web apps, Claude in Chrome
+          provides browser-based automation without MCP setup. Use it for tasks
+          like email triage, calendar updates, and form filling.
+        </p>
+        <a
+          href="/guides/claude-in-chrome"
+          className="w-fit rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+        >
+          Learn Claude in Chrome
+        </a>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">

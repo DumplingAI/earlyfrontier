@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Get Unstuck | Early Frontier",
+  description: "Reset, simplify, and reframe when Claude loops or stalls.",
+};
 
 const overview = {
   description:
-    "Sometimes Claude gets stuck in loops, providing the same unhelpful suggestions repeatedly, or fails to make progress on a task. When this happens, continuing the conversation wastes time. This workflow helps you recognize stuck patterns early and apply proven recovery techniques: resetting context, simplifying the problem, providing concrete examples, or breaking the task into smaller pieces.",
-  when: "Use this workflow when Claude repeats the same response, misunderstands your request after multiple clarifications, produces code that doesn't work repeatedly, or seems unable to progress on a task.",
+    "Sometimes Claude gets stuck in loops or stalls. When that happens, continuing the same thread wastes time. This workflow helps you reset, simplify, and reframe so you can make progress quickly.",
+  when: "Use this workflow when Claude repeats responses, misunderstands after multiple clarifications, or produces failing code repeatedly.",
 } as const;
 
 const steps = [

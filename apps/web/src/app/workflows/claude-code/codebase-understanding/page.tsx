@@ -1,18 +1,24 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Codebase Understanding | Early Frontier",
+  description: "Rapidly map architecture, identify key modules, and understand unfamiliar code before making changes.",
+};
 
 const overview = {
   description:
-    "When joining a new project or diving into unfamiliar code, use this workflow to quickly map the architecture, understand dependencies, and identify key modules. Instead of spending days reading code manually, Claude Code can scan the entire repository and provide a structured overview in minutes.",
-  when: "Use this workflow when starting on a new codebase, planning a large refactor, onboarding team members, or investigating a subsystem you haven't worked with before.",
+    "Use this workflow to map architecture, understand dependencies, and identify key modules quickly. Start by pointing Claude to existing docs (README, ADRs, diagrams), then ask for a system map and critical data flows.",
+  when: "Use this workflow when starting on a new codebase, planning a refactor, onboarding teammates, or investigating a subsystem you haven’t touched before.",
 } as const;
 
 const steps = [
   {
     step: "Start with context",
     description:
-      "Describe what you're trying to learn and why. This helps Claude focus on relevant parts of the codebase.",
+      "Describe what you’re trying to learn, why it matters, and where to start (README, architecture docs, ADRs). This keeps exploration focused.",
     example:
-      '"I\'m new to this Next.js project. Help me understand the authentication flow and how user data is managed."',
+      '"I\'m new to this repo. Start with README.md and docs/architecture.md. Explain the auth flow and how user data is managed."',
   },
   {
     step: "Request architecture mapping",

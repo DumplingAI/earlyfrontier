@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Task and Project Management | Early Frontier",
+  description: "Use Claude Code as your task orchestration layer to sync, prioritize, and manage work across multiple tools.",
+};
 
 const prerequisites = [
   {

@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Test Generation | Early Frontier",
+  description: "Add coverage for edge cases and critical paths quickly.",
+};
 
 const overview = {
   description:
-    "Writing comprehensive tests is time-consuming, but skipping them leads to production bugs and regression issues. Claude Code accelerates test creation by analyzing your code, identifying edge cases, and generating test suites with proper assertions and mocking. Instead of spending hours writing boilerplate test code, you can focus on reviewing test logic and ensuring critical paths are covered.",
-  when: "Use this workflow when adding tests to existing code, increasing coverage for critical paths, validating edge cases and failure modes, implementing TDD for new features, or preparing code for refactoring.",
+    "Writing comprehensive tests is time-consuming, but skipping them leads to regressions. Claude Code accelerates test creation by analyzing code, identifying edge cases, and generating suites with clear assertions and mocks. You focus on reviewing logic and coverage.",
+  when: "Use this when adding tests to existing code, increasing coverage for critical paths, validating failure modes, or preparing for refactors.",
 } as const;
 
 const steps = [
@@ -24,9 +30,9 @@ const steps = [
   {
     step: "Generate tests with clear assertions",
     description:
-      "Have Claude create test cases with descriptive names, proper setup/teardown, meaningful assertions, and appropriate mocking.",
+      "Have Claude create test cases with descriptive names, setup/teardown, assertions, and appropriate mocking.",
     example:
-      '"Create a test suite with: happy path tests, error handling tests, boundary condition tests, and integration tests for the discount API endpoint. Use clear test names like \'should apply percentage discount when coupon is valid\'."',
+      '"Create tests for happy paths, error handling, and boundaries. Use clear names like \'should apply percentage discount when coupon is valid\'."',
   },
   {
     step: "Run the suite and review failures",

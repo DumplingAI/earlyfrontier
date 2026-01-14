@@ -1,39 +1,45 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Model Selection | Early Frontier",
+  description: "Choose the right model for planning versus execution.",
+};
 
 const overview = {
   description:
-    "Different Claude models have different strengths. Opus excels at complex reasoning and planning, while Sonnet provides fast, high-quality execution. By strategically choosing which model to use for each phase of work, you optimize for both quality and speed. Use the strongest model when decisions matter most, then switch to faster models for execution once the approach is clear.",
+    "Different models have different strengths. Use a high-reasoning model to plan and evaluate tradeoffs, then switch to a faster model for execution once the approach is approved. This keeps decision quality high without slowing down implementation.",
   when: "Use this workflow for multi-phase projects, architectural decisions, complex refactoring, or anytime you need to balance deep thinking with rapid iteration.",
 } as const;
 
 const steps = [
   {
-    step: "Use the strongest model for planning",
+    step: "Use a high-reasoning model for planning",
     description:
-      "Start with Opus for tasks requiring deep analysis, architectural decisions, or complex tradeoff evaluation. Let it do the hard thinking upfront.",
+      "Start with the strongest model available for tasks requiring deep analysis, architecture decisions, or complex tradeoffs.",
     example:
-      '"Using Opus 4: Design our microservices architecture. Consider: service boundaries, data ownership, communication patterns, failure modes, scalability requirements. Propose 2-3 approaches with detailed tradeoff analysis."',
+      '"Planning phase: Design our service boundaries, data ownership, communication patterns, failure modes, and scalability requirements. Propose 2–3 approaches with tradeoffs."',
   },
   {
-    step: "Switch to a faster model for execution",
+    step: "Switch to a fast model for execution",
     description:
-      "Once the plan is approved, switch to Sonnet for implementation. It executes well-defined tasks quickly while maintaining quality.",
+      "Once the plan is approved, switch to a faster model that can implement well-defined tasks quickly.",
     example:
-      '"Switching to Sonnet 3.5: Implement phase 1 of the approved architecture plan—the user service with the patterns we discussed. Focus on execution, not re-evaluating the approach."',
+      '"Execution phase: Implement phase 1 of the approved plan. Follow the agreed patterns and do not re-evaluate the approach."',
   },
   {
-    step: "Confirm the plan before implementing",
+    step: "Explicitly approve the plan",
     description:
-      "Before switching models, explicitly approve the plan. This prevents the execution model from second-guessing decisions made by the planning model.",
+      "Make the handoff explicit so execution focuses on delivery instead of re-planning.",
     example:
-      '"The Opus plan looks good. I approve: PostgreSQL for user data, Redis for sessions, REST for client communication, gRPC for inter-service. Now switch to Sonnet and implement without reconsidering these choices."',
+      '"Plan approved. Use the agreed database schema and API structure. Begin implementation without changing these decisions."',
   },
   {
-    step: "Return to stronger model for course correction",
+    step: "Return to planning for course correction",
     description:
-      "If implementation reveals issues with the plan, switch back to a stronger model to reconsider the approach rather than having the execution model make ad-hoc decisions.",
+      "If execution reveals issues, switch back to the planning model for a revised approach.",
     example:
-      '"Implementation revealed a problem: gRPC doesn\'t work well with our deployment setup. Switching back to Opus: Propose alternatives for inter-service communication that work with standard HTTP load balancers."',
+      '"We hit a deployment constraint. Switch back to planning and propose alternatives that fit our infrastructure."',
   },
 ] as const;
 
@@ -41,22 +47,22 @@ const examplePrompts = [
   {
     scenario: "Complex architectural decision",
     prompt:
-      "Use Opus 4: We're hitting database performance limits. Analyze our schema and query patterns (attached). Should we: 1) Add read replicas, 2) Implement caching, 3) Denormalize tables, or 4) Move to a different database? Consider cost, complexity, and long-term maintainability.",
+      "Planning phase: We’re hitting database performance limits. Analyze our schema and query patterns (attached). Evaluate options: caching, read replicas, denormalization, or database migration. Recommend a path with tradeoffs.",
   },
   {
-    scenario: "Fast iteration on defined task",
+    scenario: "Fast iteration on a defined task",
     prompt:
-      "Use Sonnet 3.5: We've decided to implement Redis caching (plan attached). Build the cache layer with: cache keys based on user ID and request path, 5-minute TTL, invalidation on user updates. Follow the implementation plan exactly.",
+      "Execution phase: Implement the caching plan exactly as approved. Use the cache key scheme and TTLs from the plan. No new design changes.",
   },
   {
     scenario: "Strategic planning then execution",
     prompt:
-      "Phase 1 (Opus): Plan a migration from REST to GraphQL. Phase 2 (Sonnet): Once approved, implement the GraphQL schema and resolvers following the plan. I'll explicitly tell you when to switch models.",
+      "Phase 1 (planning): Plan a migration from REST to GraphQL. Phase 2 (execution): Implement the schema and resolvers after approval.",
   },
   {
     scenario: "Debugging complex issues",
     prompt:
-      "Use Opus 4: Users report intermittent auth failures. I've attached logs from 3 failures. The pattern is unclear. Analyze the logs, our auth flow, and propose a debugging strategy to isolate the root cause.",
+      "Planning phase: Users report intermittent auth failures. Analyze logs and propose a debugging strategy with hypotheses and tests.",
   },
 ] as const;
 
@@ -64,48 +70,48 @@ const outputs = [
   {
     output: "Better planning",
     description:
-      "Stronger models provide more thorough analysis, identify more edge cases, and propose better-considered solutions",
+      "High-reasoning models surface risks, edge cases, and tradeoffs earlier.",
   },
   {
     output: "Faster execution",
     description:
-      "Faster models implement approved plans quickly without the overhead of reanalyzing decisions",
+      "Fast models implement approved plans quickly without re-analysis overhead.",
   },
   {
     output: "Cleaner handoff",
     description:
-      "Explicit model transitions with approved plans prevent confusion and misaligned expectations",
+      "Explicit transitions reduce confusion and keep scope stable.",
   },
   {
-    output: "Cost optimization",
+    output: "Cost control",
     description:
-      "Using expensive models only when necessary and cheaper models for execution balances quality with efficiency",
+      "Use expensive models only where they add the most value.",
   },
 ] as const;
 
 const bestPractices = [
-  "Use Opus for decisions that are expensive to change later—architecture, database schema, API contracts",
-  "Use Sonnet for well-defined implementation tasks where the approach is clear",
-  "Explicitly approve plans before switching models—don't assume the execution model should second-guess",
-  "Document which model made which decisions so you know when to revisit with a stronger model",
-  "Use Haiku for simple, repetitive tasks like formatting, basic refactoring, or test data generation",
+  "Use high-reasoning models for decisions that are expensive to change later",
+  "Use fast models for well-defined implementation tasks",
+  "Approve plans explicitly before switching to execution",
+  "Document which model made key decisions",
+  "Use a plan → execute → review loop for critical work",
 ] as const;
 
 const commonPitfalls = [
   {
     pitfall: "Using fast models for complex decisions",
     solution:
-      "If a task requires weighing tradeoffs or making architectural choices, use Opus. Don't sacrifice decision quality for speed.",
+      "If tradeoffs or architecture decisions are involved, start with a high-reasoning model.",
   },
   {
-    pitfall: "Not explicitly approving plans",
+    pitfall: "Skipping explicit approvals",
     solution:
-      "Before switching to execution mode, clearly state: 'Plan approved. Now implement this exactly as designed.' This prevents re-planning during execution.",
+      "State the plan is approved before execution to avoid re-planning midstream.",
   },
   {
-    pitfall: "Staying on Opus for simple implementation",
+    pitfall: "Staying on high-reasoning models for simple tasks",
     solution:
-      "Once the approach is clear and approved, switch to Sonnet. Opus is overkill for straightforward execution tasks.",
+      "Once the approach is clear, switch to a faster model to reduce latency and cost.",
   },
 ] as const;
 
@@ -113,17 +119,17 @@ const tips = [
   {
     tip: "Mark the handoff point explicitly",
     example:
-      '"Planning phase complete (Opus). HANDOFF: Switching to Sonnet 3.5 for implementation. Approved plan attached. Execute phases 1-3 following this plan exactly."',
+      '"Planning complete. HANDOFF: switch to a fast model for implementation. Approved plan attached."',
   },
   {
-    tip: "Use planning-execution-review cycle",
+    tip: "Use a planning-execution-review cycle",
     example:
-      '"Opus plans → Sonnet implements → Opus reviews. This catches issues early while keeping implementation fast."',
+      '"Plan → Execute → Review" improves quality without slowing delivery.',
   },
   {
-    tip: "Document model choices in commits",
+    tip: "Record model choices in notes",
     example:
-      '"In commit messages, note: \'Architecture designed by Opus\' or \'Implementation by Sonnet 3.5\'. This helps understand quality expectations when reviewing history."',
+      '"Architecture planned with high-reasoning model; implementation executed with fast model."',
   },
 ] as const;
 

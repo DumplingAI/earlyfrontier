@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Developer Workflows | Early Frontier",
+  description: "Practical, repeatable workflows for common development tasks that help you ship software faster.",
+};
 
 const workflows = [
   {

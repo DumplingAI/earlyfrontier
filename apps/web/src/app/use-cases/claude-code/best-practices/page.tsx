@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Best Practices | Early Frontier",
+  description: "Reliable habits and patterns for safe, effective Claude Code development sessions.",
+};
 
 const corePractices = [
   {

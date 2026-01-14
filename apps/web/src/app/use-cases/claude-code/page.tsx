@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Claude Code | Early Frontier",
+  description: "How people are using Claude Code today: from developer workflows to personal productivity automations.",
+};
 
 const sections = [
   {

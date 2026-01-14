@@ -1,150 +1,183 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "A Comprehensive Guide to Claude Code | Early Frontier",
+  description: "Developer workflows, productivity use cases, and MCP-powered integrations in one guide.",
+};
 
 const workflowTable = [
   {
     workflow: "Codebase Understanding",
     description:
-      "Get a system map, key modules, and dependency overview before changing code.",
+      "Map architecture, key modules, and dependencies before changing code.",
   },
   {
     workflow: "Bug Fixing",
-    description: "Provide an error trace and let Claude Code propose fixes.",
+    description: "Analyze errors, identify root causes, and verify fixes with tests.",
   },
   {
     workflow: "Refactoring",
-    description: "Modernize legacy code while preserving behavior and tests.",
+    description: "Modernize code in staged, reviewable chunks with rollbacks.",
   },
   {
     workflow: "Test Generation",
-    description: "Add edge-case tests and coverage for failure modes.",
+    description: "Fill coverage gaps with edge cases and failure-mode tests.",
   },
   {
     workflow: "CI/CD Automation",
     description:
-      "Integrate with pipelines for test runs, PR prep, and review support.",
+      "Generate pipelines, quality gates, and deployment checklists.",
   },
 ] as const;
 
 const productivity = [
-  "Email and calendar management",
-  "Task and project tracking",
-  "Meeting summaries",
-  "Content drafting and research",
+  "Email triage with approval-only drafts",
+  "Meeting briefs and structured summaries",
+  "Task updates and weekly status reports",
+  "Research briefs with cited sources",
+  "File management and cleanup",
+  "Browser automation with Claude in Chrome",
 ] as const;
 
 const bestPractices = [
-  "Ask for a plan before implementation",
-  "Keep prompts scoped to a single goal",
+  "Ask for a plan before any multi-file changes",
+  "Make constraints explicit (performance, dependencies, style)",
   "Review diffs before committing",
-  "Run tests to validate changes",
+  "Run tests or checks before shipping",
+  "Save decisions to a project file (e.g., Claude.md)",
 ] as const;
 
 const beginnerPlaybook = [
   {
-    title: "Think before you type",
+    title: "Plan before you run",
     description:
-      "Start in plan mode and outline the end state before you ask Claude to act. Better inputs produce better outputs.",
+      "For anything beyond a trivial edit, ask for a plan and validate scope before code changes.",
     steps: [
-      "Define the outcome before you prompt",
-      "Ask for a plan and review it",
-      "Execute only after the plan is solid",
+      "State the outcome and constraints",
+      "Ask for a step-by-step plan",
+      "Approve the plan before execution",
     ],
     path: "/workflows/claude-code/think-first",
   },
   {
-    title: "Be specific about constraints",
+    title: "Make prompts precise",
     description:
-      "Define scope, requirements, and what not to do. Narrow prompts beat vague requests every time.",
+      "Specific requirements and examples reduce rework and lower risk.",
     steps: [
-      "List the exact requirements and constraints",
-      "Call out what to avoid or not touch",
-      "Confirm assumptions before execution",
+      "List requirements and exclusions",
+      "Provide examples and edge cases",
+      "Confirm assumptions before edits",
     ],
     path: "/workflows/claude-code/prompt-specificity",
   },
   {
-    title: "Use Claude.md as leverage",
+    title: "Use Claude.md for consistency",
     description:
-      "Keep instructions short, project-specific, and explain why each rule exists. Update it when you correct the same mistake twice.",
+      "Capture conventions, constraints, and architecture decisions once and reuse them.",
     steps: [
-      "Capture project-specific rules only",
-      "Add a why for each rule",
+      "Document the 5–10 rules that prevent mistakes",
+      "Include a short “why” for each rule",
       "Update after repeated corrections",
     ],
     path: "/workflows/claude-code/claude-md",
   },
   {
-    title: "Respect context limits",
+    title: "Manage context actively",
     description:
-      "Quality drops before the window is full. Keep tasks scoped, use scratch files, and reset context when it starts to drift.",
+      "Long threads drift. Use checkpoints and fresh threads to keep quality high.",
     steps: [
-      "Keep one task per thread",
-      "Store plans in scratch files",
-      "Reset when context starts drifting",
+      "One task per thread",
+      "Save progress to scratch files",
+      "Reset context when quality drops",
     ],
     path: "/workflows/claude-code/context-management",
   },
   {
-    title: "Pick the right model for the job",
+    title: "Choose the right model",
     description:
-      "Use a planning-focused model for architecture decisions, then switch to a faster model for execution when the path is clear.",
+      "Use a stronger model for planning and a faster one for execution.",
     steps: [
-      "Use the strongest model for planning",
-      "Switch to a faster model for execution",
-      "Keep Claude.md consistent across models",
+      "Plan with a high-reasoning model",
+      "Execute with a fast model",
+      "Switch back if the plan changes",
     ],
     path: "/workflows/claude-code/model-selection",
   },
   {
-    title: "When stuck, change the approach",
+    title: "When stuck, reset",
     description:
-      "Clear the thread, simplify the task, or show a concrete example instead of repeating the same instruction.",
+      "Change the approach instead of repeating the same prompt.",
     steps: [
       "Reset or simplify the task",
-      "Show a concrete example",
-      "Reframe the problem when looping",
+      "Provide concrete examples",
+      "Try an alternative approach",
     ],
     path: "/workflows/claude-code/get-unstuck",
   },
   {
-    title: "Build systems, not one-offs",
+    title: "Automate repeatable work",
     description:
-      "Use headless mode, hooks, and repeated workflows to compound improvements over time.",
+      "Turn frequent tasks into scripts, hooks, or CI workflows.",
     steps: [
-      "Identify repeatable workflows",
-      "Automate them with hooks or scripts",
-      "Review logs and iterate over time",
+      "Identify recurring workflows",
+      "Automate with hooks or CI",
+      "Review logs and improve",
     ],
     path: "/workflows/claude-code/build-systems",
   },
 ] as const;
 
 const playbookTldr = [
-  "Plan before you prompt",
-  "Be specific about constraints",
-  "Keep Claude.md short and current",
-  "Manage context actively",
-  "Use the right model for each phase",
-  "Reset and reframe when stuck",
-  "Automate repeatable work",
+  "Plan first, then execute",
+  "Be explicit about constraints",
+  "Record standards in Claude.md",
+  "Keep context tight",
+  "Review diffs and tests",
+  "Automate what repeats",
 ] as const;
 
 const toolingNotes = [
   {
     title: "MCP servers",
     description:
-      "Connect external data sources and tools so Claude can act without manual copy-paste.",
+      "Connect external tools and data sources so Claude can act without manual copy-paste.",
   },
   {
-    title: "Hooks",
+    title: "Slash commands",
     description:
-      "Run checks or formatters automatically when Claude edits files to prevent drift.",
+      "Standardize prompts into reusable commands for reviews, plans, and summaries.",
   },
   {
-    title: "Custom slash commands",
+    title: "Hooks and automation",
     description:
-      "Package repeatable prompts into commands for debugging, review, or deploy workflows.",
+      "Trigger checks or formatters automatically when Claude edits files.",
   },
+  {
+    title: "Permission controls",
+    description:
+      "Use least-privilege and approval steps for risky actions like writes or deploys.",
+  },
+] as const;
+
+const chromeVsMcp = [
+  {
+    title: "Claude in Chrome",
+    description:
+      "Best for UI-driven workflows: clicking through web apps, filling forms, and reading pages you’re logged into.",
+  },
+  {
+    title: "MCP integrations",
+    description:
+      "Best for structured, reliable automation: API access, database queries, and background workflows.",
+  },
+] as const;
+
+const chromeUseCases = [
+  "Summarize Gmail threads and draft replies for review",
+  "Create calendar events directly in Google Calendar",
+  "Extract structured data from web dashboards",
+  "Fill repetitive forms from a template or spreadsheet",
 ] as const;
 
 export default function ClaudeCodeCompleteGuidePage() {
@@ -157,7 +190,7 @@ export default function ClaudeCodeCompleteGuidePage() {
       ]}
       eyebrow="Guide"
       title="A Comprehensive Guide to Claude Code"
-      description="Developer workflows, personal productivity use cases, and MCP-powered integrations in one guide."
+      description="Developer workflows, productivity use cases, and MCP-powered integrations in one guide."
     >
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
         <div className="grid gap-2">
@@ -167,10 +200,11 @@ export default function ClaudeCodeCompleteGuidePage() {
           <h2 className="font-serif text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          Claude Code is a terminal-based agentic coding assistant designed to
-          accelerate software development. Through MCP, it can also connect to
-          external tools, turning it into a productivity assistant for non-technical
-          workflows like email, calendar, and research.
+          Claude Code is a CLI tool for working with codebases through natural
+          language. It can read and edit files, run commands with permission, and
+          help you plan and execute multi-step changes. With MCP servers, it can
+          also connect to external tools like email, calendars, docs, and
+          databases.
         </p>
       </section>
 
@@ -196,10 +230,11 @@ export default function ClaudeCodeCompleteGuidePage() {
             terminal.
           </div>
           <div className="glass-card rounded-2xl border border-border/70 p-5">
-            Start with a clear prompt and ask for a plan before changes are made.
+            Provide a clear goal and request a plan before any multi-file edits.
           </div>
           <div className="glass-card rounded-2xl border border-border/70 p-5">
-            Review the diff, run tests, and iterate on the plan.
+            Review the diff, run tests, and iterate on the plan if requirements
+            change.
           </div>
         </div>
       </section>
@@ -262,46 +297,60 @@ export default function ClaudeCodeCompleteGuidePage() {
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Tooling and configuration</h2>
+        <h2 className="font-serif text-2xl">Claude in Chrome vs MCP</h2>
         <div className="grid gap-4 md:grid-cols-2">
-          {toolingNotes.map((item) => (
+          {chromeVsMcp.map((item) => (
             <div
               key={item.title}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{item.title}</h3>
+              <h3 className="font-serif text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Best practices</h2>
-        <div className="grid gap-3 text-sm text-muted-foreground">
-          {bestPractices.map((practice) => (
+        <div className="mt-4 grid gap-3 text-sm text-muted-foreground">
+          {chromeUseCases.map((item) => (
             <div
-              key={practice}
+              key={item}
               className="glass-card rounded-xl border border-border/70 px-4 py-3"
             >
-              {practice}
+              {item}
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-foreground p-10 text-background md:p-12">
-        <h2 className="font-serif text-3xl">Explore the workflows</h2>
-        <p className="max-w-3xl text-sm text-background/80">
-          Jump into the workflow library for step-by-step prompts and outcomes you
-          can use immediately.
-        </p>
-        <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-background/70">
-          <span>Workflows</span>
-          <span>Integrations</span>
-          <span>Use cases</span>
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Quality checklist</h2>
+        <div className="grid gap-3 text-sm text-muted-foreground">
+          {bestPractices.map((item) => (
+            <div
+              key={item}
+              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+            >
+              {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Tooling notes</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {toolingNotes.map((item) => (
+            <div
+              key={item.title}
+              className="glass-card rounded-2xl border border-border/70 p-5"
+            >
+              <h3 className="font-serif text-lg">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </PageShell>

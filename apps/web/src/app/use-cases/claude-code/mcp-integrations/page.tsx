@@ -1,155 +1,156 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MCP Integrations | Early Frontier",
+  description: "Extend Claude Code with MCP servers to connect your tools and automate multi-step workflows.",
+};
 
 const popularIntegrations = [
   {
     name: "Google Workspace",
-    description: "Gmail, Calendar, Drive, and Docs integration for productivity workflows",
-    capabilities: ["Email management", "Calendar scheduling", "Document access", "File storage"],
+    description: "Gmail, Calendar, Drive, and Docs for productivity workflows",
+    capabilities: ["Email triage", "Scheduling", "Doc summaries", "Briefs"],
     setup: "medium",
   },
   {
     name: "Slack",
-    description: "Team communication and channel management",
-    capabilities: ["Send messages", "Read channels", "Manage threads", "Bot integration"],
+    description: "Team communication and channel context",
+    capabilities: ["Summaries", "Action items", "Triage", "Announcements"],
     setup: "easy",
   },
   {
     name: "Notion",
-    description: "All-in-one workspace for notes, databases, and wikis",
-    capabilities: ["Read databases", "Create pages", "Update properties", "Search content"],
+    description: "Workspace for notes, databases, and docs",
+    capabilities: ["Read databases", "Create pages", "Update properties"],
     setup: "medium",
   },
   {
     name: "Linear",
     description: "Issue tracking and project management",
-    capabilities: ["Create issues", "Update status", "Query filters", "Manage labels"],
+    capabilities: ["Query issues", "Update status", "Summaries"],
     setup: "easy",
   },
   {
     name: "GitHub",
-    description: "Code repository and development workflow management",
-    capabilities: ["Manage repos", "Create PRs", "Review code", "Check CI status"],
+    description: "Repos, PRs, issues, and CI status",
+    capabilities: ["Review diffs", "Summarize PRs", "Track CI"],
     setup: "easy",
   },
   {
-    name: "PostgreSQL / MySQL",
-    description: "Direct database access for queries and data analysis",
-    capabilities: ["Run queries", "Analyze schemas", "Export data", "Migration support"],
+    name: "Databases",
+    description: "Direct query access for analysis and reporting",
+    capabilities: ["Run queries", "Analyze schemas", "Export data"],
     setup: "medium",
   },
 ] as const;
 
 const setupSteps = [
   {
-    step: "Find or build an MCP server",
-    description: "Browse available MCP servers or create your own using the MCP SDK",
-    resources: ["Official MCP registry", "Community servers on GitHub", "MCP SDK documentation"],
+    step: "Identify a server",
+    description:
+      "Choose an MCP server provided by the tool vendor, community, or your internal team.",
+    resources: ["Official MCP docs", "Vendor API docs", "Internal server registry"],
     example: undefined as string | undefined,
     tips: undefined as readonly string[] | undefined,
-    configLocation: undefined as string | undefined,
-    testCommands: undefined as readonly string[] | undefined,
   },
   {
-    step: "Install the server",
-    description: "Install via npm, pip, or other package managers depending on the server",
-    example: "npm install @modelcontextprotocol/server-notion",
+    step: "Install or deploy",
+    description:
+      "Install via package manager or deploy as a service. Prefer local servers for sensitive data.",
+    example: undefined as string | undefined,
     resources: undefined as readonly string[] | undefined,
-    tips: undefined as readonly string[] | undefined,
-    configLocation: undefined as string | undefined,
-    testCommands: undefined as readonly string[] | undefined,
+    tips: ["Pin versions", "Use a staging environment first"],
   },
   {
     step: "Configure authentication",
-    description: "Set up API keys, OAuth tokens, or other credentials required by the service",
-    tips: ["Store credentials securely", "Use environment variables", "Follow least-privilege principle"],
+    description:
+      "Set up OAuth or API keys with least-privilege scopes and separate dev/prod credentials.",
+    tips: ["Store secrets securely", "Rotate tokens regularly"],
     example: undefined as string | undefined,
     resources: undefined as readonly string[] | undefined,
-    configLocation: undefined as string | undefined,
-    testCommands: undefined as readonly string[] | undefined,
   },
   {
-    step: "Add to Claude Code config",
-    description: "Update your MCP configuration file to include the new server",
-    configLocation: "~/.claude/mcp_config.json",
+    step: "Connect in Claude Code",
+    description:
+      "Add the server using the MCP CLI or configuration. Choose a scope that fits your workflow (local, project, or user).",
     example: undefined as string | undefined,
     resources: undefined as readonly string[] | undefined,
-    tips: undefined as readonly string[] | undefined,
-    testCommands: undefined as readonly string[] | undefined,
+    tips: ["Use project scope for team-shared configs", "Keep config in version control"],
   },
   {
-    step: "Test the connection",
-    description: "Verify the server appears in Claude Code and test basic operations",
-    testCommands: ["List available tools", "Try a simple query", "Check error handling"],
+    step: "Test and validate",
+    description:
+      "List tools/prompts, run a simple read-only query, and confirm outputs match expectations.",
+    tips: ["Add logging", "Document a smoke test"],
     example: undefined as string | undefined,
     resources: undefined as readonly string[] | undefined,
-    tips: undefined as readonly string[] | undefined,
-    configLocation: undefined as string | undefined,
   },
 ] as const;
 
 const integrationCategories = [
   {
     category: "Communication & Collaboration",
-    tools: ["Slack", "Discord", "Microsoft Teams", "Zoom"],
-    useCases: "Team notifications, meeting scheduling, message automation, bot interactions",
+    tools: ["Slack", "Teams", "Discord", "Zoom"],
+    useCases: "Summaries, meeting briefs, action items, broadcasts",
   },
   {
     category: "Project Management",
-    tools: ["Linear", "Jira", "Asana", "Trello", "Monday.com"],
-    useCases: "Task creation, sprint planning, status tracking, workflow automation",
+    tools: ["Linear", "Jira", "Asana", "Trello"],
+    useCases: "Triage, status reporting, sprint updates",
   },
   {
     category: "Documentation & Knowledge",
-    tools: ["Notion", "Confluence", "GitBook", "Obsidian"],
-    useCases: "Wiki management, documentation search, content creation, knowledge graphs",
+    tools: ["Notion", "Confluence", "GitBook"],
+    useCases: "Knowledge capture, documentation search, playbooks",
   },
   {
     category: "Development Tools",
-    tools: ["GitHub", "GitLab", "Bitbucket", "Docker", "Kubernetes"],
-    useCases: "Code review, deployment, CI/CD management, container orchestration",
+    tools: ["GitHub", "GitLab", "Bitbucket"],
+    useCases: "PR review, issue summaries, CI status",
   },
   {
     category: "Data & Analytics",
-    tools: ["PostgreSQL", "MongoDB", "Redis", "Snowflake", "BigQuery"],
-    useCases: "Data queries, schema analysis, reporting, data migration",
+    tools: ["PostgreSQL", "MySQL", "BigQuery"],
+    useCases: "Querying, reporting, analytics automation",
   },
   {
-    category: "Productivity & Personal",
-    tools: ["Google Workspace", "Microsoft 365", "Todoist", "Evernote"],
-    useCases: "Email triage, calendar management, note-taking, task tracking",
+    category: "Productivity",
+    tools: ["Google Workspace", "Microsoft 365", "Todoist"],
+    useCases: "Email triage, calendar coordination, personal workflows",
   },
 ] as const;
 
 const useCaseExamples = [
   {
     title: "Customer Support Automation",
-    description: "Connect to Zendesk or Intercom to read tickets, draft responses, and update status based on issue analysis.",
-    integrations: ["Zendesk", "Slack", "Notion"],
+    description: "Summarize ticket queues, draft replies, and post daily status updates.",
+    integrations: ["Ticketing", "Slack", "Docs"],
   },
   {
     title: "DevOps Workflows",
-    description: "Combine GitHub, CI/CD tools, and cloud providers to automate deployments, rollbacks, and monitoring.",
-    integrations: ["GitHub", "AWS/GCP", "Datadog"],
+    description: "Summarize CI failures, propose fixes, and draft rollback checklists.",
+    integrations: ["GitHub", "CI/CD", "Chat"],
   },
   {
-    title: "Content Marketing Pipeline",
-    description: "Research topics via web search, draft content, save to CMS, and schedule social posts all from Claude Code.",
-    integrations: ["Web Search", "WordPress", "Buffer/Hootsuite"],
+    title: "Content Research Pipeline",
+    description: "Search, summarize sources, and draft briefs with citations.",
+    integrations: ["Search", "Fetch", "Docs"],
   },
   {
     title: "Sales Intelligence",
-    description: "Pull data from CRM, enrich with web research, update deal stages, and send follow-up emails automatically.",
-    integrations: ["Salesforce", "LinkedIn", "Gmail"],
+    description: "Compile account updates and meeting briefs for upcoming calls.",
+    integrations: ["CRM", "Email", "Calendar"],
   },
   {
     title: "Engineering Analytics",
-    description: "Query databases for metrics, pull GitHub activity, analyze sprint velocity, and generate engineering reports.",
-    integrations: ["PostgreSQL", "GitHub", "Linear", "Notion"],
+    description: "Generate weekly sprint health and quality reports.",
+    integrations: ["Database", "GitHub", "Linear"],
   },
   {
     title: "Personal Knowledge Management",
-    description: "Sync notes across Notion and Obsidian, extract tasks to Linear, and maintain a personal wiki with automatic linking.",
-    integrations: ["Notion", "Obsidian", "Linear"],
+    description: "Capture notes, extract tasks, and keep a structured knowledge base.",
+    integrations: ["Notion", "Docs", "Tasks"],
   },
 ] as const;
 
@@ -161,57 +162,57 @@ const customServerGuide = [
   },
   {
     reason: "Data transformation needs",
-    example: "Complex data processing before making it available to Claude",
-    approach: "Create a server that handles ETL and exposes clean data interfaces",
+    example: "You need ETL before data is useful",
+    approach: "Create a server that cleans and normalizes data before exposure",
   },
   {
     reason: "Security requirements",
-    example: "Need additional authentication layers or data filtering",
-    approach: "Wrap existing APIs with custom security logic in your MCP server",
+    example: "You need extra filtering or approval gates",
+    approach: "Wrap APIs with additional auth and policy checks",
   },
   {
     reason: "Performance optimization",
-    example: "Caching, rate limiting, or request batching for external APIs",
-    approach: "Build middleware layer that optimizes API calls",
+    example: "External APIs have rate limits",
+    approach: "Add caching, batching, and throttling in the server",
   },
 ] as const;
 
 const bestPractices = [
   "Start with read-only integrations before enabling write permissions",
   "Test each MCP server independently before combining multiple servers",
-  "Document your MCP configuration for team consistency",
-  "Use separate API keys for development and production environments",
-  "Monitor API usage and costs for third-party services",
-  "Keep MCP servers updated to get latest features and security patches",
-  "Implement proper error handling for network failures and API limits",
+  "Document configuration and prompts for team consistency",
+  "Use separate credentials for dev and production",
+  "Monitor usage and costs for third-party services",
+  "Keep servers updated for security patches",
+  "Add logging for tool calls and failures",
 ] as const;
 
 const troubleshooting = [
   {
     issue: "MCP server not appearing in Claude Code",
     solutions: [
-      "Check configuration file syntax and path",
-      "Verify server is properly installed",
+      "Check configuration syntax and scope",
+      "Verify the server is installed and running",
       "Restart Claude Code to reload configuration",
-      "Check server logs for startup errors",
+      "Review server logs for startup errors",
     ],
   },
   {
     issue: "Authentication failures",
     solutions: [
-      "Verify API keys and tokens are correct",
-      "Check token expiration dates",
-      "Ensure proper OAuth scopes are granted",
-      "Review service-specific authentication docs",
+      "Verify API keys and tokens",
+      "Check token expiration and scopes",
+      "Confirm OAuth redirect URIs",
+      "Review vendor authentication docs",
     ],
   },
   {
     issue: "Rate limiting or quota errors",
     solutions: [
-      "Implement caching to reduce API calls",
-      "Add delays between requests",
-      "Upgrade service plan if hitting limits regularly",
-      "Use batch operations where supported",
+      "Cache results to reduce calls",
+      "Batch requests where possible",
+      "Add delays between calls",
+      "Upgrade service plan if needed",
     ],
   },
 ] as const;
@@ -219,19 +220,19 @@ const troubleshooting = [
 const securityConsiderations = [
   {
     title: "Credential Management",
-    description: "Never hardcode API keys in configuration files. Use environment variables or secure credential stores.",
+    description: "Use environment variables or secret managers; avoid hardcoding keys.",
   },
   {
     title: "Least Privilege Access",
-    description: "Grant only the minimum permissions needed for each integration. Review and audit access regularly.",
+    description: "Grant only the minimum permissions needed and audit regularly.",
   },
   {
     title: "Data Privacy",
-    description: "Be mindful of what data Claude has access to through MCP servers. Filter sensitive information when necessary.",
+    description: "Filter sensitive data and avoid exposing secrets to tools.",
   },
   {
     title: "Audit Logging",
-    description: "Enable logging for MCP server actions to track what operations were performed and when.",
+    description: "Log tool calls and errors for visibility and accountability.",
   },
 ] as const;
 
@@ -253,21 +254,18 @@ export default function ClaudeCodeMcpIntegrationsPage() {
       ]}
       eyebrow="Claude Code"
       title="MCP Integrations"
-      description="Extend Claude Code with MCP servers to connect your favorite tools and automate complex workflows across multiple platforms."
+      description="Extend Claude Code with MCP servers to connect your tools and automate multi-step workflows."
     >
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Overview</h2>
         <p className="text-sm text-muted-foreground">
-          MCP (Model Context Protocol) servers act as bridges between Claude Code and
-          external tools, services, and data sources. Instead of building custom
-          integrations for every tool, MCP provides a standardized way to connect
-          Claude to virtually any service—from project management tools like Linear
-          and Notion, to databases, APIs, and custom internal systems.
+          MCP servers connect Claude Code to external tools, services, and data
+          sources through a standardized protocol. That makes integrations
+          reusable across workflows and enables more reliable automation.
         </p>
         <p className="text-sm text-muted-foreground">
-          This creates powerful automation possibilities: automatically triage support
-          tickets, sync tasks across tools, analyze database queries, manage deployments,
-          or orchestrate multi-tool workflows—all through natural language conversations.
+          Start with one high-value server, keep permissions tight, and add
+          review gates before enabling write actions.
         </p>
       </section>
 
@@ -420,9 +418,9 @@ export default function ClaudeCodeMcpIntegrationsPage() {
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Building custom MCP servers</h2>
         <p className="text-sm text-muted-foreground">
-          When existing MCP servers don't meet your needs, build custom servers using
-          the MCP SDK. This is useful for connecting internal tools, implementing
-          custom business logic, or wrapping proprietary APIs.
+          When existing servers don’t meet your needs, build a custom MCP server
+          using the SDK. This is especially useful for internal tools, custom
+          policies, or performance optimizations.
         </p>
         <div className="grid gap-4 md:grid-cols-2">
           {customServerGuide.map((item) => (

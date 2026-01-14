@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Context Management | Early Frontier",
+  description: "Keep context focused to preserve output quality.",
+};
 
 const overview = {
   description:
-    "Long conversations accumulate context that can degrade Claude's performance. As threads grow, responses become slower, less accurate, and sometimes contradictory. Managing context deliberately—keeping conversations focused, resetting when needed, and storing progress externally—maintains response quality throughout your session. Think of it like keeping your workspace organized instead of letting clutter pile up.",
-  when: "Use this workflow when conversations exceed 20-30 exchanges, switching between unrelated tasks, noticing degraded response quality, or working on multi-day projects that need persistent state.",
+    "Long conversations can degrade response quality. Manage context deliberately—keep threads focused, reset when needed, and store progress in files. Treat it like keeping your workspace organized.",
+  when: "Use this workflow when conversations exceed 20–30 exchanges, you switch between unrelated tasks, or you notice degraded response quality.",
 } as const;
 
 const steps = [

@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Think First | Early Frontier",
+  description: "Plan before prompting to improve accuracy and reduce rework.",
+};
 
 const overview = {
   description:
-    "Jumping straight into implementation without planning leads to rework, missed requirements, and suboptimal solutions. The Think First workflow ensures Claude understands the problem, considers alternatives, and gets your approval before writing code. This upfront investment in planning saves hours of iteration and produces better outcomes aligned with your actual needs.",
-  when: "Use this workflow for complex features, architectural decisions, refactoring initiatives, performance optimizations, or any task where the approach matters as much as the execution.",
+    "Jumping straight into implementation causes rework and missed requirements. Think First ensures Claude understands the problem, evaluates alternatives, and gets approval before writing code. This reduces iteration and improves outcome quality.",
+  when: "Use this workflow for complex features, architectural decisions, refactoring initiatives, performance optimizations, or any task where the approach matters as much as execution.",
 } as const;
 
 const steps = [
@@ -17,9 +23,9 @@ const steps = [
   {
     step: "Ask for a plan before any edits",
     description:
-      "Request that Claude propose an approach, explain tradeoffs, and identify potential issues before touching any code. This is where you catch problems early.",
+      "Request an approach with tradeoffs, risks, and validation steps before any code changes. This is where you catch problems early.",
     example:
-      '"Before implementing, create a plan covering: 1) Which authentication library to use and why, 2) Database schema changes needed, 3) API endpoints to create, 4) Security considerations, 5) Testing strategy. Explain alternatives you considered."',
+      '"Before implementing, create a plan covering: library choice, schema changes, API endpoints, security considerations, and testing strategy. Include risks and alternatives."',
   },
   {
     step: "Validate the plan and then execute",

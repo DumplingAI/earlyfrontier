@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions | Early Frontier",
+  description: "Common questions about using Claude Code for development and productivity workflows.",
+};
 
 const gettingStartedFaqs = [
   {
@@ -14,7 +20,7 @@ const gettingStartedFaqs = [
   {
     question: "How do I install Claude Code?",
     answer:
-      "Install with npm: `npm install -g claude-code`, then authenticate with `claude auth login`. You'll need Node.js 18+ and a Claude account. See the Getting Started guide for detailed setup instructions.",
+      "Install with npm: `npm install -g @anthropic-ai/claude-code` (Node.js 18+), or use the native installer for your OS. Then run `claude` inside your project folder. See the Getting Started guide for detailed setup instructions.",
   },
   {
     question: "What's the difference between Claude Code and ChatGPT/Claude.ai?",

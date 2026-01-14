@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Inbox Triage | Early Frontier",
+  description: "Reduce inbox time with prioritized summaries and draft replies.",
+};
 
 const overview = {
   description:
-    "Email overload slows down decision-making and wastes valuable time. Claude Code helps you process your inbox efficiently by connecting via MCP servers, identifying priority messages, extracting action items, and drafting contextual replies. Instead of spending hours reading and responding to emails, you can focus on high-value work while Claude handles the initial triage and response drafting.",
-  when: "Use this workflow when returning from vacation, processing daily email volume, preparing for meetings, managing support tickets, or handling high-volume customer communication.",
+    "Email overload slows decisions and wastes time. Claude Code can triage inboxes via MCP servers, identify priorities, extract action items, and draft replies for review. Keep permissions tight and require approval before sending.",
+  when: "Use this workflow when returning from vacation, processing daily email volume, preparing for meetings, or handling high-volume support communication.",
 } as const;
 
 const steps = [

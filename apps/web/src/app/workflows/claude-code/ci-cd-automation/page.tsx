@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "CI/CD Automation | Early Frontier",
+  description: "Automate tests, checks, and release steps in your pipeline.",
+};
 
 const overview = {
   description:
-    "Manual deployment processes are error-prone and time-consuming. Claude Code helps you build robust CI/CD pipelines by generating workflow configurations, automating quality checks, and orchestrating deployment steps. Whether you're using GitHub Actions, GitLab CI, CircleCI, or Jenkins, Claude can help you create pipelines that catch issues early and deploy with confidence.",
-  when: "Use this workflow when setting up new CI/CD pipelines, adding automated quality gates, implementing deployment strategies, troubleshooting pipeline failures, or migrating between CI/CD platforms.",
+    "Manual deployments are error-prone and slow. Claude Code helps you build CI/CD pipelines with automated checks, clear gating, and reliable deployment steps. Use it to generate workflow configs and catch issues early.",
+  when: "Use this workflow when setting up pipelines, adding quality gates, implementing deployment strategies, troubleshooting failures, or migrating between CI/CD platforms.",
 } as const;
 
 const steps = [

@@ -1,39 +1,45 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Build Systems | Early Frontier",
+  description: "Turn Claude Code into a repeatable, automated workflow engine.",
+};
 
 const overview = {
   description:
-    "The most powerful use of Claude Code isn't one-off tasks—it's building repeatable systems that compound over time. By identifying recurring workflows, automating them with scripts or CI/CD integrations, and iterating based on results, you create leverage. What takes 30 minutes manually today becomes a 30-second automated workflow tomorrow, freeing you to focus on higher-value problems.",
-  when: "Use this workflow when you find yourself doing the same task repeatedly, onboarding new team members to common processes, scaling development practices across a growing team, or building internal tools and productivity systems.",
+    "The most powerful use of Claude Code isn’t one-off tasks—it’s building repeatable systems that compound over time. By identifying recurring workflows, automating them with hooks or CI, and iterating based on results, you create leverage that scales across your team.",
+  when: "Use this workflow when you find yourself repeating tasks, onboarding teammates to common processes, or scaling development practices across a growing team.",
 } as const;
 
 const steps = [
   {
     step: "Identify repeatable tasks",
     description:
-      "Track what you ask Claude to do repeatedly. These patterns reveal opportunities for automation: code review checklists, test generation, deployment scripts, documentation updates.",
+      "Track the requests you repeat most: code review checks, test generation, documentation updates, release notes.",
     example:
-      '"I notice I ask you to generate API client code every time we add a new endpoint. Let\'s build a script that automates this: reads OpenAPI spec, generates TypeScript client with proper types, writes to src/api/. Make it a pre-commit hook."',
+      '"We generate API clients every time we add endpoints. Let’s automate it: read OpenAPI spec, generate TypeScript client into src/api/."',
   },
   {
-    step: "Automate via headless mode or hooks",
+    step: "Automate with hooks or CI",
     description:
-      "Convert manual workflows into automated systems using Claude Code's headless mode, git hooks, CI/CD pipelines, or scheduled scripts.",
+      "Convert manual workflows into automated systems using git hooks, CI pipelines, or scheduled jobs.",
     example:
-      '"Create a GitHub Action that runs on PR creation: 1) Uses Claude Code headless to review code for common issues, 2) Checks against our coding standards in Claude.md, 3) Posts findings as PR comments. Trigger automatically, no manual intervention."',
+      '"Create a GitHub Action that reviews PRs for missing tests, checks conventions from Claude.md, and posts a summary comment."',
   },
   {
-    step: "Review logs and iterate",
+    step: "Add logging and guardrails",
     description:
-      "Monitor automated workflows for failures, false positives, or missed cases. Use this feedback to refine prompts and improve accuracy over time.",
+      "Automation needs observability. Add logs, limits, and approval steps for risky actions.",
     example:
-      '"The automated code review flagged 5 false positives this week. Add to the automation: \'Don\'t flag console.log in test files\' and \'Allow TODO comments with linked tickets\'. Update the workflow and redeploy."',
+      '"If the automated review detects security issues, require manual approval before merge."',
   },
   {
     step: "Document and share systems",
     description:
-      "Make your automated workflows discoverable and reusable. Document how they work, when to use them, and how to modify them. This multiplies impact across your team.",
+      "Make workflows discoverable and reusable. Document how to run, modify, and troubleshoot them.",
     example:
-      '"Create AUTOMATION.md documenting our Claude Code systems: API client generation (pre-commit), code review (PR automation), test scaffolding (npm script). Include usage examples and how to update prompts."',
+      '"Create AUTOMATION.md describing our PR review bot, test scaffolding workflow, and doc update job."',
   },
 ] as const;
 
@@ -41,22 +47,22 @@ const examplePrompts = [
   {
     scenario: "Automating code reviews",
     prompt:
-      "Build a code review automation system: 1) Reads git diff, 2) Checks for: missing tests, security issues, performance anti-patterns, style violations, 3) Outputs markdown report. Package as a pre-push git hook. Include instructions for installation.",
+      "Build a review automation: read git diff, check for missing tests and security risks, output a markdown report. Package as a pre-push hook with install steps.",
   },
   {
-    scenario: "Generating boilerplate on demand",
+    scenario: "Generating boilerplate",
     prompt:
-      "Create an npm script 'generate:crud' that takes a model name and generates: TypeScript model class, Prisma schema, CRUD API routes, test suite skeleton, OpenAPI spec. Follow our project conventions in Claude.md. Make it idempotent—running twice should be safe.",
+      "Create a script 'generate:crud' that reads a model name and generates: TypeScript model, API routes, tests, and docs. It must be idempotent.",
   },
   {
     scenario: "Automated documentation updates",
     prompt:
-      "Build a system that runs weekly: scans src/ for exported functions, generates API documentation, updates docs/api.md. If the documentation changed, creates a PR with the updates. Use Claude Code headless mode and GitHub CLI.",
+      "Build a weekly job that scans src/ exports and updates docs/api.md. If docs changed, open a PR.",
   },
   {
     scenario: "Continuous quality monitoring",
     prompt:
-      "Create a daily scheduled job that: analyzes recent commits, identifies patterns of repeated bugs or style issues, updates Claude.md with new guidelines to prevent future occurrences. Email a weekly summary to the team.",
+      "Create a scheduled job that analyzes recent commits for repeated issues and updates Claude.md with new guidelines.",
   },
 ] as const;
 
@@ -64,66 +70,66 @@ const outputs = [
   {
     output: "Automated workflows",
     description:
-      "Scripts, hooks, and CI/CD integrations that execute Claude Code tasks without manual intervention",
+      "Hooks, scripts, and CI pipelines that run reliable Claude Code tasks without manual setup",
   },
   {
     output: "Consistent quality",
     description:
-      "Standardized checks and generation patterns ensure consistency across the team and over time",
+      "Standardized checks and templates that keep output consistent across the team",
   },
   {
     output: "Compounding gains",
     description:
-      "Each automated workflow saves time repeatedly, creating exponential productivity improvements as systems accumulate",
+      "Repeated time savings from each automated workflow",
   },
   {
-    output: "Team force multiplication",
+    output: "Team leverage",
     description:
-      "Automated systems scale expertise—junior developers get senior-level guidance automatically through well-designed workflows",
+      "Automation scales expertise to the whole team, not just power users",
   },
 ] as const;
 
 const bestPractices = [
-  "Start small with one high-frequency task—automate your biggest time sink first, then expand",
-  "Build in failure handling and logging—automated systems need observability to debug when they break",
-  "Make systems opt-in initially—test with early adopters before forcing team-wide adoption",
-  "Version control your automation prompts—treat them as code, review changes, track what works",
-  "Measure impact quantitatively—track time saved, errors prevented, or consistency improvements to justify investment",
+  "Start with the most frequent task—automate the biggest time sink first",
+  "Add logging and alerts for automation failures",
+  "Make systems opt-in before rolling out widely",
+  "Version control prompts and automation configs",
+  "Measure impact to justify ongoing maintenance",
 ] as const;
 
 const commonPitfalls = [
   {
-    pitfall: "Over-automating low-frequency tasks",
+    pitfall: "Automating low-frequency tasks",
     solution:
-      "Automate tasks you do weekly or more. If it's monthly or rare, manual execution with good documentation is more cost-effective than building automation.",
+      "Automate tasks you do weekly or more. Otherwise, document the manual process instead.",
   },
   {
-    pitfall: "Creating brittle automations without error handling",
+    pitfall: "Brittle automation without error handling",
     solution:
-      "Build in fallbacks: if automation fails, log the error and notify someone. Don't silently fail or block critical workflows.",
+      "Add fallbacks: log errors, notify owners, and avoid blocking critical workflows.",
   },
   {
-    pitfall: "Not maintaining automated systems",
+    pitfall: "Not maintaining automation",
     solution:
-      "Schedule quarterly reviews of automation. Update for codebase changes, refine prompts, remove obsolete systems. Automation rots like code.",
+      "Schedule periodic reviews to update prompts and fix broken assumptions.",
   },
 ] as const;
 
 const tips = [
   {
-    tip: "Build progressive automation",
+    tip: "Automate in stages",
     example:
-      '"Start with: script generates code, you review and commit. Then: script generates and creates PR. Finally: script generates, runs tests, auto-merges if green. Increase automation confidence gradually."',
+      '"Start with generate-only → then generate + PR → then auto-merge after checks pass."',
   },
   {
-    tip: "Create automation templates",
+    tip: "Create reusable templates",
     example:
-      '"Build reusable templates: \'PR Review Bot Template\', \'Code Generator Template\', \'Documentation Sync Template\'. New automations start from proven patterns, saving setup time."',
+      '"Build templates for PR review, doc updates, and test scaffolding so new automations start from known patterns."',
   },
   {
     tip: "Integrate with existing tools",
     example:
-      '"Connect Claude Code automation to tools you already use: Slack for notifications, Jira for ticket creation, Datadog for monitoring. Don\'t build parallel systems—extend what exists."',
+      '"Send reports to Slack or tickets to Jira instead of creating a new system."',
   },
 ] as const;
 

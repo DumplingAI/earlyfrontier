@@ -1,102 +1,113 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MCP for Beginners | Early Frontier",
+  description: "A practical introduction to connecting tools to AI agents.",
+};
 
 const tldr = [
-  "MCP is like USB for AI agents",
-  "Connects external tools without custom code",
-  "Start with one high-value server",
-  "Test with simple workflows first",
-  "Security matters: only expose what you need",
-  "MCP servers are reusable across projects",
+  "MCP is an open protocol for connecting AI clients to tools and data",
+  "Servers expose tools, resources, and prompts",
+  "Messages follow JSON-RPC 2.0",
+  "Start with a small, read-only server",
+  "Use least-privilege credentials and separate environments",
+  "Prefer authenticated transports for remote servers",
 ] as const;
 
 const coreConcepts = [
   {
     title: "Servers",
     description:
-      "Programs that expose tools, resources, or prompts to AI agents. Think of them as plugins that give your AI new capabilities.",
+      "Servers expose capabilities to clients. They can provide tools (actions), resources (data), and prompts (templates) over the MCP protocol.",
   },
   {
     title: "Tools",
     description:
-      "Actions the AI can perform, like reading files, querying databases, or sending emails. Each tool has defined inputs and outputs.",
+      "Model-controlled actions like API calls, file writes, or database queries. Clients can apply permission gates before execution.",
   },
   {
     title: "Resources",
     description:
-      "Data sources the AI can read from, like file contents, API responses, or database records. Resources are read-only references.",
+      "Client-attached context such as file contents, database records, or API responses. Resources are typically read-only.",
   },
   {
     title: "Prompts",
     description:
-      "Pre-packaged prompt templates that servers can provide. These help standardize common workflows across your team.",
+      "User-controlled templates that standardize common workflows. In Claude Code, MCP prompts can appear as slash commands.",
   },
 ] as const;
 
 const gettingStarted = [
   {
-    step: "Install MCP support",
+    step: "Confirm MCP support in your client",
     description:
-      "Ensure your AI client (like Claude Code) supports MCP. Most recent versions include MCP support out of the box.",
+      "Use a client that supports MCP servers, prompts, and tools. Claude Code includes MCP support and can discover prompts dynamically.",
   },
   {
-    step: "Choose your first server",
+    step: "Choose a first server with low risk",
     description:
-      "Start simple: filesystem for document access, or time for date/time operations. Pick one that solves an immediate need.",
+      "Start with a local, read-only server like filesystem or a sandbox database. Avoid write permissions until the workflow is stable.",
   },
   {
-    step: "Configure the server",
+    step: "Connect the server",
     description:
-      "Add the server to your MCP configuration file. Most servers need just a command and optional environment variables.",
+      "Add the server using your client’s configuration or CLI. In Claude Code, the MCP CLI supports local, project, and user scopes.",
   },
   {
     step: "Test the connection",
     description:
-      "Verify the server appears in your AI client. Try a simple query to confirm it's working before building complex workflows.",
+      "List available tools and prompts, then run a simple read-only action to confirm output shape and permissions.",
+  },
+  {
+    step: "Lock down permissions",
+    description:
+      "Use least privilege, audit logs, and separate credentials for dev vs production. Add human review for write actions.",
   },
 ] as const;
 
 const useCases = [
   {
     category: "Development",
-    title: "Code repository analysis",
+    title: "Codebase analysis",
     description:
-      "Connect filesystem and git servers to analyze codebases, track changes, and understand project structure without manual file reading.",
-    servers: ["@modelcontextprotocol/server-filesystem", "git-server"],
+      "Connect filesystem and version control servers to map architecture, find ownership, and review changes quickly.",
+    servers: ["filesystem", "git"],
   },
   {
     category: "Development",
     title: "Database exploration",
     description:
-      "Query databases directly from your AI conversation. Test queries, explore schemas, and analyze data without switching tools.",
-    servers: ["@modelcontextprotocol/server-postgres", "sqlite-server"],
+      "Query schemas and run read-only analyses directly from your AI client without context switching.",
+    servers: ["postgres", "mysql", "sqlite"],
   },
   {
     category: "Productivity",
-    title: "Email and calendar management",
+    title: "Email and calendar",
     description:
-      "Read emails, schedule meetings, and manage your calendar. Let AI handle routine email triage and scheduling conflicts.",
-    servers: ["gmail-server", "google-calendar-server"],
+      "Summarize inboxes, prepare meeting briefs, and draft replies with explicit approval steps.",
+    servers: ["email", "calendar"],
   },
   {
-    category: "Productivity",
-    title: "Research and summarization",
+    category: "Research",
+    title: "Web search and retrieval",
     description:
-      "Connect web search and content fetching to gather information, summarize articles, and compile research without copy-paste.",
-    servers: ["brave-search-server", "web-fetch-server"],
-  },
-  {
-    category: "Business",
-    title: "Data analysis and reporting",
-    description:
-      "Pull data from multiple sources, run analyses, and generate reports. Combine database, spreadsheet, and API data seamlessly.",
-    servers: ["postgres-server", "sheets-server", "rest-api-server"],
+      "Gather sources, extract key facts, and build structured research briefs without copy-paste.",
+    servers: ["web search", "fetch"],
   },
   {
     category: "Business",
-    title: "Process automation",
+    title: "Reporting and analytics",
     description:
-      "Chain together multiple tools to automate workflows. Connect project management, communication, and data systems for end-to-end automation.",
-    servers: ["slack-server", "jira-server", "notion-server"],
+      "Combine CRM, spreadsheets, and databases to generate weekly reporting and KPI rollups.",
+    servers: ["sheets", "crm", "database"],
+  },
+  {
+    category: "Operations",
+    title: "Workflow automation",
+    description:
+      "Chain tools like tickets + chat + docs to automate triage, handoffs, and status updates.",
+    servers: ["ticketing", "chat", "docs"],
   },
 ] as const;
 
@@ -104,71 +115,68 @@ const commonIssues = [
   {
     issue: "Server not appearing",
     solutions: [
-      "Check MCP configuration file syntax",
-      "Verify server installation and path",
-      "Restart your AI client to reload configuration",
+      "Verify the server command and working directory",
+      "Restart the client to reload MCP configuration",
+      "Check server logs for startup errors",
     ],
   },
   {
     issue: "Permission errors",
     solutions: [
-      "Review file/folder access permissions",
-      "Check environment variables are set correctly",
-      "Ensure server has necessary API credentials",
+      "Confirm credentials and scopes",
+      "Use read-only access while testing",
+      "Verify the client’s allowed directories",
     ],
   },
   {
-    issue: "Server crashes or timeouts",
+    issue: "Slow or failing requests",
     solutions: [
-      "Check server logs for error messages",
-      "Reduce query complexity or batch size",
-      "Verify external services are accessible",
+      "Reduce query size or add pagination",
+      "Check upstream API limits and quotas",
+      "Add caching or batching in the server",
     ],
   },
 ] as const;
 
 const bestPractices = [
-  "Only expose data and tools you trust the AI to access",
-  "Start with read-only servers before adding write capabilities",
-  "Test servers independently before using in complex workflows",
-  "Document your MCP configuration for team consistency",
-  "Keep server versions updated for security and features",
+  "Treat MCP servers like production integrations: secure, versioned, and monitored",
+  "Start with read-only tools and add write access only with review steps",
+  "Document prompt templates and expected outputs for repeatability",
+  "Separate dev and prod credentials to reduce risk",
+  "Prefer scoped access and data filters over broad permissions",
 ] as const;
 
 const popularServers = [
   {
     category: "File & Data",
     servers: [
-      { name: "Filesystem", description: "Read and write local files" },
-      {
-        name: "PostgreSQL",
-        description: "Query and manage Postgres databases",
-      },
-      { name: "SQLite", description: "Work with SQLite databases" },
+      { name: "Filesystem", description: "Read project files and docs" },
+      { name: "Git", description: "Inspect history, diffs, and blame" },
+      { name: "PostgreSQL", description: "Query relational data" },
     ],
   },
   {
     category: "Web & APIs",
     servers: [
-      { name: "Brave Search", description: "Web search capabilities" },
-      { name: "Fetch", description: "Retrieve web content and APIs" },
-      { name: "Puppeteer", description: "Browser automation and scraping" },
+      { name: "HTTP Fetch", description: "Retrieve web pages and APIs" },
+      { name: "Search", description: "Find sources and references" },
+      { name: "Browser automation", description: "Scripted browsing or scraping" },
     ],
   },
   {
     category: "Productivity",
     servers: [
-      { name: "Google Calendar", description: "Manage calendar events" },
-      { name: "Gmail", description: "Read and send emails" },
-      { name: "Slack", description: "Send messages and manage channels" },
+      { name: "Email", description: "Summaries, drafts, triage" },
+      { name: "Calendar", description: "Availability and scheduling" },
+      { name: "Docs/Wiki", description: "Read and update knowledge" },
     ],
   },
   {
-    category: "Development",
+    category: "Operations",
     servers: [
-      { name: "Git", description: "Version control operations" },
-      { name: "GitHub", description: "Manage repos, issues, and PRs" },
-      { name: "Memory", description: "Persistent context across sessions" },
+      { name: "Tickets", description: "Triage and update issues" },
+      { name: "Chat", description: "Summaries and announcements" },
+      { name: "CRM", description: "Account context and reporting" },
     ],
   },
 ] as const;
@@ -193,17 +201,15 @@ export default function MCPForBeginnersPage() {
           <h2 className="font-serif text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
-          The Model Context Protocol (MCP) is a standardized way to connect AI
-          agents to external tools and data sources. Think of it as USB ports for
-          AI—a universal interface that lets any AI client connect to any tool
-          through a common protocol. Instead of building custom integrations for
-          each tool, MCP provides a single standard that works everywhere.
+          The Model Context Protocol (MCP) is an open standard for connecting AI
+          clients to external tools and data sources. It gives models a consistent
+          way to use tools (actions), access resources (data), and run prompts
+          (templates) without custom per-app integrations.
         </p>
         <p className="text-sm text-muted-foreground">
-          Whether you need to access your filesystem, query databases, search the
-          web, or integrate with productivity tools, MCP servers make it possible
-          without writing integration code. This guide walks you through the
-          fundamentals and gets you started with your first MCP server.
+          With MCP, a single server can work with multiple clients that support the
+          protocol. The result is reusable integrations, clearer permissions, and
+          workflows that are easier to standardize across teams.
         </p>
       </section>
 
@@ -226,29 +232,30 @@ export default function MCPForBeginnersPage() {
         <div className="grid gap-4">
           <div className="glass-card rounded-2xl border border-border/70 p-5">
             <h3 className="font-serif text-xl">
-              A protocol for AI tool connections
+              A standard protocol for tool connections
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              MCP defines how AI agents discover and use external tools. Instead
-              of each AI client implementing its own integration for every tool,
-              MCP provides a standard protocol. Build once, use everywhere.
+              MCP defines a consistent, JSON-RPC-based interface that clients and
+              servers can use to exchange tools, resources, and prompts. That
+              standardization is what makes integrations reusable.
             </p>
           </div>
           <div className="glass-card rounded-2xl border border-border/70 p-5">
-            <h3 className="font-serif text-xl">How it compares to alternatives</h3>
+            <h3 className="font-serif text-xl">How it differs from one-off plugins</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Unlike custom APIs or one-off plugins, MCP is client-agnostic. An
-              MCP server works with Claude Code, future AI tools, and any client
-              that supports the protocol. It's standardized, open, and reusable.
+              Rather than building bespoke integrations per client, MCP lets a
+              server expose capabilities once and makes them available to any
+              MCP-capable client. This reduces maintenance and improves
+              consistency across tools.
             </p>
           </div>
           <div className="glass-card rounded-2xl border border-border/70 p-5">
-            <h3 className="font-serif text-xl">When to use MCP</h3>
+            <h3 className="font-serif text-xl">When MCP is the right fit</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Use MCP when your AI workflows need external data or actions: reading
-              files, querying databases, calling APIs, managing email, or
-              automating tasks. If you find yourself manually copying data into AI
-              conversations, MCP can automate it.
+              Use MCP when your workflows need data or actions from outside your
+              AI client: files, tickets, databases, email, calendars, or web
+              sources. If copy-paste is part of the workflow, MCP is usually the
+              next step.
             </p>
           </div>
         </div>
@@ -262,7 +269,7 @@ export default function MCPForBeginnersPage() {
               key={concept.title}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{concept.title}</h3>
+              <h3 className="font-serif text-lg">{concept.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {concept.description}
               </p>
@@ -273,48 +280,41 @@ export default function MCPForBeginnersPage() {
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
         <h2 className="font-serif text-2xl">Getting started</h2>
-        <div className="grid gap-4">
-          {gettingStarted.map((item, index) => (
+        <div className="grid gap-4 text-sm text-muted-foreground">
+          {gettingStarted.map((item) => (
             <div
               key={item.step}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border/70 bg-background text-xs font-medium">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="font-serif text-xl">{item.step}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {item.description}
-                  </p>
-                </div>
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+                {item.step}
               </div>
+              <p className="mt-2">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Practical use cases</h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {useCases.map((useCase) => (
+        <h2 className="font-serif text-2xl">Use cases</h2>
+        <div className="grid gap-4">
+          {useCases.map((item) => (
             <div
-              key={useCase.title}
+              key={item.title}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <div className="mb-2 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                {useCase.category}
+              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+                {item.category}
               </div>
-              <h3 className="font-serif text-xl">{useCase.title}</h3>
+              <h3 className="mt-2 font-serif text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                {useCase.description}
+                {item.description}
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
-                {useCase.servers.map((server) => (
+                {item.servers.map((server) => (
                   <span
                     key={server}
-                    className="rounded-full bg-background/50 px-2 py-1 text-xs text-muted-foreground"
+                    className="rounded-full bg-background/60 px-2 py-1 text-xs text-muted-foreground"
                   >
                     {server}
                   </span>
@@ -326,14 +326,14 @@ export default function MCPForBeginnersPage() {
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Troubleshooting common issues</h2>
+        <h2 className="font-serif text-2xl">Common issues</h2>
         <div className="grid gap-4">
           {commonIssues.map((item) => (
             <div
               key={item.issue}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="font-serif text-xl">{item.issue}</h3>
+              <h3 className="font-serif text-lg">{item.issue}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.solutions.map((solution) => (
                   <li key={solution} className="flex items-start gap-2">
@@ -362,64 +362,29 @@ export default function MCPForBeginnersPage() {
       </section>
 
       <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Popular MCP servers</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {popularServers.map((category) => (
+        <h2 className="font-serif text-2xl">Common server categories</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {popularServers.map((group) => (
             <div
-              key={category.category}
+              key={group.category}
               className="glass-card rounded-2xl border border-border/70 p-5"
             >
-              <h3 className="mb-3 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-                {category.category}
-              </h3>
-              <div className="space-y-3">
-                {category.servers.map((server) => (
-                  <div key={server.name}>
-                    <div className="font-medium text-sm">{server.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {server.description}
-                    </div>
+              <h3 className="font-serif text-lg">{group.category}</h3>
+              <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
+                {group.servers.map((server) => (
+                  <div
+                    key={server.name}
+                    className="rounded-lg border border-border/60 bg-background/60 px-3 py-2"
+                  >
+                    <span className="font-medium text-foreground">
+                      {server.name}
+                    </span>
+                    <span className="text-muted-foreground"> — {server.description}</span>
                   </div>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Next steps</h2>
-        <div className="grid gap-4">
-          <div className="glass-card rounded-2xl border border-border/70 p-5">
-            <h3 className="font-serif text-xl">Building custom servers</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              When existing servers don't meet your needs, build your own using the
-              MCP SDK. It takes 30-60 minutes to create a basic server that exposes
-              your custom tools or data sources.
-            </p>
-          </div>
-          <div className="glass-card rounded-2xl border border-border/70 p-5">
-            <h3 className="font-serif text-xl">Community resources</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Explore the official MCP documentation, browse community-built
-              servers, and join discussions about new integrations and best
-              practices.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-foreground p-10 text-background md:p-12">
-        <h2 className="font-serif text-3xl">Start with one server</h2>
-        <p className="max-w-3xl text-sm text-background/80">
-          Pick a single high-value MCP server that solves an immediate problem.
-          Install it, test it with a simple workflow, and expand from there. The
-          best way to learn MCP is to use it for something real.
-        </p>
-        <div className="flex flex-wrap gap-4 text-xs uppercase tracking-[0.3em] text-background/70">
-          <span>Integrations</span>
-          <span>Use cases</span>
-          <span>Workflows</span>
         </div>
       </section>
     </PageShell>

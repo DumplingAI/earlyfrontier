@@ -1,18 +1,24 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Prompt Specificity | Early Frontier",
+  description: "Write prompts with clear constraints and success criteria.",
+};
 
 const overview = {
   description:
-    "Vague prompts lead to generic solutions that don't meet your needs. Specific prompts with clear constraints, requirements, and success criteria produce focused, accurate results. By investing time upfront to articulate exactly what you want—and what you don't want—you eliminate ambiguity and reduce back-and-forth iterations. This workflow helps you craft prompts that get the right answer the first time.",
-  when: "Use this workflow when requesting features, debugging complex issues, asking for architectural advice, generating code with specific patterns, or anytime precision matters more than speed.",
+    "Vague prompts lead to generic solutions. Specific prompts with clear constraints, requirements, and success criteria produce focused, accurate results. Investing time upfront reduces back-and-forth and avoids rework.",
+  when: "Use this workflow when requesting features, debugging complex issues, asking for architectural advice, or anytime precision matters more than speed.",
 } as const;
 
 const steps = [
   {
     step: "List requirements and constraints",
     description:
-      "Start by explicitly stating what must be included, technical constraints, performance requirements, and dependencies. Be concrete with examples where possible.",
+      "State what must be included, technical constraints, performance requirements, and dependencies. Use concrete examples where possible.",
     example:
-      '"Add a search feature to our product catalog. Requirements: must support fuzzy matching, filter by category and price range, return results within 100ms, work with our existing PostgreSQL database. Don\'t use Elasticsearch—we want to avoid new infrastructure."',
+      '"Add search to our product catalog. Requirements: fuzzy matching, category + price filters, <100ms response, use existing PostgreSQL. Don\'t add new infrastructure."',
   },
   {
     step: "Define what to avoid",

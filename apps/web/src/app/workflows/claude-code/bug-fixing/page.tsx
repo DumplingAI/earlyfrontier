@@ -1,18 +1,24 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bug Fixing | Early Frontier",
+  description: "Move from error trace to verified fix efficiently with root cause analysis and comprehensive testing.",
+};
 
 const overview = {
   description:
-    "Bug fixing with Claude Code moves from error diagnosis to verified fix in a single workflow. Instead of manually tracing through code and stack traces, describe the bug, provide error output, and let Claude analyze root causes, propose fixes, and validate the solution through tests.",
-  when: "Use this when investigating production issues, debugging test failures, fixing regressions, or addressing user-reported bugs. Especially valuable for unfamiliar codebases or complex error traces.",
+    "Move from error diagnosis to verified fix with a structured workflow. Provide the error trace, reproduction steps, and environment details so Claude can isolate the root cause, propose a fix, and validate with tests.",
+  when: "Use this for production issues, failing tests, regressions, or user-reported bugs—especially in unfamiliar codepaths.",
 } as const;
 
 const steps = [
   {
     step: "Provide complete context",
     description:
-      "Share the full error trace, reproduction steps, expected vs actual behavior, and any relevant logs. The more context, the faster the diagnosis.",
+      "Share the full error trace, reproduction steps, expected vs actual behavior, and environment details (version, config, data shape).",
     example:
-      '"Here\'s a TypeError on line 42 of auth.ts when user email is undefined. Steps to reproduce: 1) Create user without email, 2) Attempt login. Expected: graceful error. Actual: server crash."',
+      '"TypeError on line 42 of auth.ts in staging. Steps: 1) Create user without email, 2) Attempt login. Expected: graceful error. Actual: server crash. Node 20, Postgres 15."',
   },
   {
     step: "Request root cause analysis",
@@ -31,7 +37,7 @@ const steps = [
     step: "Verify with tests",
     description:
       "Run existing tests and add new ones covering the bug scenario. Confirm the fix works and prevents regression.",
-    example: '"Add a test for the undefined email case and run the full test suite to check for regressions."',
+    example: '"Add a test for the undefined email case and run the auth test suite. Report any regressions."',
   },
 ] as const;
 

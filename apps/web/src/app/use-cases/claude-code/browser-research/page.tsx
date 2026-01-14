@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Web Research and Analysis | Early Frontier",
+  description: "Use Claude Code with browser tooling to gather, analyze, and synthesize web data for competitive analysis, market research, and content creation.",
+};
 
 const prerequisites = [
   {

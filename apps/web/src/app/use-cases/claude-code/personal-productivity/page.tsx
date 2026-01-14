@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Personal Productivity | Early Frontier",
+  description: "Automate admin work, manage communications, and coordinate tasks\u2014all in natural language through MCP-connected tools.",
+};
 
 const workflows = [
   {
@@ -24,6 +30,19 @@ const workflows = [
     path: "/use-cases/claude-code/browser-research",
     description: "Gather information from the web, synthesize findings, and create comprehensive research reports",
     when: "Conducting market research or competitive analysis",
+  },
+] as const;
+
+const additionalWorkflows = [
+  {
+    title: "File management and cleanup",
+    description: "Rename, sort, and organize local files using structured prompts and approval steps.",
+    when: "Cleaning up downloads, invoices, or shared folders",
+  },
+  {
+    title: "Content drafting",
+    description: "Create outlines, drafts, and summaries for reports, briefs, or newsletters.",
+    when: "Producing recurring content or internal updates",
   },
 ] as const;
 
@@ -66,6 +85,16 @@ const quickWins = [
     task: "Research compilation",
     prompt: "Research the top 5 project management tools for remote teams, create a comparison table with pricing and key features",
     time: "Saves 1-2 hours per research task",
+  },
+  {
+    task: "File organization",
+    prompt: "Rename all PDFs in this folder using the pattern 'YYYY-MM-DD Vendor - Invoice.pdf' based on file contents. Move each file into a vendor folder.",
+    time: "Saves 30-60 minutes per cleanup session",
+  },
+  {
+    task: "Content draft",
+    prompt: "Draft a one-page weekly update: accomplishments, blockers, and next steps. Keep it concise and skimmable.",
+    time: "Saves 20-30 minutes per update",
   },
 ] as const;
 
@@ -131,6 +160,25 @@ export default function ClaudeCodePersonalProductivityPage() {
                 {workflow.when}
               </p>
             </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Additional workflows</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {additionalWorkflows.map((workflow) => (
+            <div
+              key={workflow.title}
+              className="glass-card rounded-2xl border border-border/70 p-5"
+            >
+              <h3 className="font-serif text-xl">{workflow.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{workflow.description}</p>
+              <p className="mt-3 text-xs text-muted-foreground/70">
+                <span className="font-medium">When to use: </span>
+                {workflow.when}
+              </p>
+            </div>
           ))}
         </div>
       </section>

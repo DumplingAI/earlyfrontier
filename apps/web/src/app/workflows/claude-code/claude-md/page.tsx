@@ -1,9 +1,15 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Claude.md | Early Frontier",
+  description: "Use Claude.md as a leverage point for consistent behavior.",
+};
 
 const overview = {
   description:
-    "Claude Code can read project instructions from a Claude.md file in your repository. This becomes a leverage point for consistent behavior across all interactions. Instead of repeating the same instructions in every prompt, you codify your team's conventions, architecture decisions, and preferences once. Claude automatically references this file, ensuring every response aligns with your project standards.",
-  when: "Use this workflow when onboarding new team members, enforcing coding standards, documenting architectural decisions, preventing repeat mistakes, or establishing project-specific conventions.",
+    "Claude Code can read project instructions from a Claude.md file in your repository. This becomes a leverage point for consistent behavior across sessions. Instead of repeating instructions, you codify conventions, architecture decisions, and guardrails once.",
+  when: "Use this workflow when onboarding new team members, enforcing standards, documenting architectural decisions, or preventing repeat mistakes.",
 } as const;
 
 const steps = [

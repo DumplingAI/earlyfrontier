@@ -1,4 +1,10 @@
 import PageShell from "@/components/page-shell";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "A living library of AI agent use cases | Early Frontier",
+  description: "Explore how teams and individuals are applying AI agents to real workflows, with clear outcomes and repeatable steps.",
+};
 
 const useCases = [
   {
@@ -22,6 +28,27 @@ const filters = [
     title: "Tool",
     items: ["Claude Code", "MCP"],
   },
+] as const;
+
+const guidance = [
+  {
+    title: "Start with outcomes",
+    description: "Pick a use case based on the output you need, not the tool.",
+  },
+  {
+    title: "Verify inputs",
+    description: "Make sure you can access the data and systems required.",
+  },
+  {
+    title: "Define review steps",
+    description: "Identify where human approval is required before actions.",
+  },
+] as const;
+
+const outputs = [
+  "Patches, refactors, and test suites with review notes.",
+  "Summaries and reports for teams and stakeholders.",
+  "Automated triage for inboxes, tickets, and support queues.",
 ] as const;
 
 export default function UseCasesPage() {
@@ -69,6 +96,35 @@ export default function UseCasesPage() {
                 {item.description}
               </p>
             </a>
+          ))}
+        </div>
+      </section>
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">How to pick a use case</h2>
+        <div className="grid gap-4 md:grid-cols-3">
+          {guidance.map((item) => (
+            <div
+              key={item.title}
+              className="glass-card rounded-2xl border border-border/70 p-5"
+            >
+              <h3 className="font-serif text-lg">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Common outcomes</h2>
+        <div className="grid gap-3 text-sm text-muted-foreground">
+          {outputs.map((item) => (
+            <div
+              key={item}
+              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+            >
+              {item}
+            </div>
           ))}
         </div>
       </section>
