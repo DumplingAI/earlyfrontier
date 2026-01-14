@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001";
+import { env } from "@earlyfrontier/env/web";
+
+const baseUrl = env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001";
 
 const staticRoutes = [
   "",
