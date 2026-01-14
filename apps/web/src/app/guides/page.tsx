@@ -28,6 +28,11 @@ const guides = [
     path: "/guides/choosing-the-right-agent",
     description: "A decision framework for selecting the right agent setup.",
   },
+  {
+    title: "Clawdbot Guide",
+    path: "/guides/clawdbot",
+    description: "Architecture, setup, security, configuration, and skills.",
+  },
 ] as const;
 
 const reasons = [

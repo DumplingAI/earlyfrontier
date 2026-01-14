@@ -29,6 +29,25 @@ const tools = [
   },
 ] as const;
 
+const featuredTools = [
+  {
+    title: "Clawdbot",
+    description:
+      "A local gateway that bridges WhatsApp, Telegram, Discord, and iMessage to Pi agents so you can message an assistant from your phone.",
+    highlights: [
+      "Single Gateway process owns channel connections",
+      "Local dashboard for control and monitoring",
+      "Config supports allowlists and mention rules",
+    ],
+    links: [
+      { label: "Site", href: "https://clawd.bot/" },
+      { label: "Docs", href: "https://docs.clawd.bot/" },
+      { label: "GitHub", href: "https://github.com/clawdbot/clawdbot" },
+      { label: "Guide", href: "/guides/clawdbot" },
+    ],
+  },
+] as const;
+
 const evaluation = [
   "Does the tool support the data sources you need?",
   "Can you control permissions and access scope?",
@@ -60,6 +79,47 @@ export default function ToolingPage() {
               <p className="mt-2 text-sm text-muted-foreground">
                 {tool.description}
               </p>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
+        <h2 className="font-serif text-2xl">Featured tools</h2>
+        <div className="grid gap-4">
+          {featuredTools.map((tool) => (
+            <div
+              key={tool.title}
+              className="glass-card rounded-2xl border border-border/70 p-6"
+            >
+              <div className="grid gap-2">
+                <h3 className="font-serif text-lg">{tool.title}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {tool.description}
+                </p>
+              </div>
+              <div className="mt-4 grid gap-2 text-sm text-muted-foreground md:grid-cols-3">
+                {tool.highlights.map((item) => (
+                  <div
+                    key={item}
+                    className="glass-card rounded-xl border border-border/70 px-3 py-2"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {tool.links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           ))}
         </div>

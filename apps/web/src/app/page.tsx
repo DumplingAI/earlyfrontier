@@ -265,6 +265,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
+          <div className="grid gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+              New Guide
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl">Clawdbot</h2>
+            <p className="max-w-3xl text-muted-foreground">
+              A full guide to Clawdbot architecture, setup, permissions, and
+              skills so you can run agent workflows in chat.
+            </p>
+            <a
+              href="/guides/clawdbot"
+              className="w-fit rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+            >
+              Read the Clawdbot guide
+            </a>
+          </div>
+        </section>
+
         <section className="grid gap-6 rounded-[32px] border border-border/70 bg-foreground p-10 text-background md:p-12">
           <h2 className="font-serif text-3xl md:text-4xl">Start with Claude Code</h2>
           <p className="max-w-3xl text-sm text-background/80">
