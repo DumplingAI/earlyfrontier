@@ -46,28 +46,28 @@ export default function GoogleWorkspaceIntegrationPage() {
       title="Google Workspace"
       description="Connect Gmail, Calendar, and Docs to Claude Code workflows."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Popular workflows</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Popular workflows</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {workflows.map((workflow) => (
             <div
               key={workflow}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {workflow}
             </div>
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">What teams automate</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">What teams automate</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {details.map((item) => (
             <div
               key={item.title}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.title}</h3>
+              <h3 className="font-sans text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -75,13 +75,13 @@ export default function GoogleWorkspaceIntegrationPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Setup checklist</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Setup checklist</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {setup.map((item) => (
             <div
               key={item}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {item}
             </div>

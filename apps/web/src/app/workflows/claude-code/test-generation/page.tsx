@@ -144,7 +144,7 @@ export default function TestGenerationWorkflowPage() {
     <PageShell
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Workflows", href: "/workflows" },
+        
         { label: "Claude Code", href: "/use-cases/claude-code" },
         { label: "Test Generation" },
       ]}
@@ -152,10 +152,10 @@ export default function TestGenerationWorkflowPage() {
       title="Test Generation"
       description="Add coverage for edge cases and critical paths quickly."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Overview</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Overview</h2>
         <p className="text-sm text-muted-foreground">{overview.description}</p>
-        <div className="rounded-xl bg-background/50 p-4">
+        <div className=" bg-background/50 p-4">
           <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-2">
             When to use
           </div>
@@ -163,17 +163,17 @@ export default function TestGenerationWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Step-by-step process</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Step-by-step process</h2>
         <div className="grid gap-6">
           {steps.map((item, index) => (
-            <div key={item.step} className="glass-card rounded-2xl border border-border/70 p-5">
+            <div key={item.step} className=" border-2 border-border p-5">
               <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border/70 bg-background text-xs font-medium">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border-2 border-border bg-background text-xs font-medium">
                   {index + 1}
                 </span>
                 <div className="flex-1">
-                  <h3 className="font-serif text-lg">{item.step}</h3>
+                  <h3 className="font-sans text-lg">{item.step}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                   <div className="mt-3 rounded-lg bg-background/50 p-3 text-sm italic text-muted-foreground">
                     {item.example}
@@ -185,13 +185,13 @@ export default function TestGenerationWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Example prompts</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Example prompts</h2>
         <div className="grid gap-4">
           {examplePrompts.map((item) => (
             <div
               key={item.scenario}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
               <div className="mb-2 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
                 {item.scenario}
@@ -202,28 +202,28 @@ export default function TestGenerationWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Expected outputs</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Expected outputs</h2>
         <div className="grid gap-4">
           {outputs.map((item) => (
             <div
               key={item.output}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.output}</h3>
+              <h3 className="font-sans text-lg">{item.output}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Best practices</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((practice) => (
             <div
               key={practice}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {practice}
             </div>
@@ -231,15 +231,15 @@ export default function TestGenerationWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Common pitfalls</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Common pitfalls</h2>
         <div className="grid gap-4">
           {commonPitfalls.map((item) => (
             <div
               key={item.pitfall}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg text-orange-600/90">{item.pitfall}</h3>
+              <h3 className="font-sans text-lg text-orange-600/90">{item.pitfall}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Solution: </span>
                 {item.solution}
@@ -249,29 +249,29 @@ export default function TestGenerationWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Pro tips</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Pro tips</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {tips.map((item) => (
             <div
               key={item.tip}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.tip}</h3>
+              <h3 className="font-sans text-lg">{item.tip}</h3>
               <p className="mt-2 text-sm italic text-muted-foreground">"{item.example}"</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Related workflows</h2>
+      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Related workflows</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
             >
               {item.title}
             </a>

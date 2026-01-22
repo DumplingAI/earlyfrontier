@@ -18,8 +18,8 @@ export default function MCPIntegrationsPage() {
       title="MCP"
       description="Use MCP to connect models to external tools through a standard interface."
     >
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Why MCP matters</h2>
+      <section className="grid gap-4  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Why MCP matters</h2>
         <p className="text-sm text-muted-foreground">
           MCP provides a consistent protocol for AI clients to access tools,
           resources, and prompt templates. Instead of bespoke integrations, you
@@ -27,8 +27,8 @@ export default function MCPIntegrationsPage() {
           support the standard.
         </p>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">What MCP enables</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">What MCP enables</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {[
             "Standard tool interfaces across files, databases, and APIs.",
@@ -38,15 +38,15 @@ export default function MCPIntegrationsPage() {
           ].map((item) => (
             <div
               key={item}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {item}
             </div>
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Getting started</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Getting started</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {[
             "Inventory the tools you want to connect (docs, tickets, comms, data).",
@@ -56,7 +56,7 @@ export default function MCPIntegrationsPage() {
           ].map((item) => (
             <div
               key={item}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {item}
             </div>

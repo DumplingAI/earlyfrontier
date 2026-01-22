@@ -6,21 +6,12 @@ const baseUrl = env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001";
 
 const staticRoutes = [
   "",
-  "/about",
-  "/guides",
-  "/guides/clawdbot",
-  "/guides/clawdbot/overview",
-  "/guides/clawdbot/architecture",
-  "/guides/clawdbot/getting-started",
-  "/guides/clawdbot/security-permissions",
-  "/guides/clawdbot/configuration-control-ui",
-  "/guides/clawdbot/skills-clawdhub",
-  "/guides/clawdbot/use-cases",
-  "/resources",
-  "/resources/tooling",
-  "/use-cases",
-  "/workflows",
-  "/integrations",
+  "/official-resources",
+  "/community-lists",
+  "/extensions-integrations",
+  "/applications",
+  "/education",
+  "/community",
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

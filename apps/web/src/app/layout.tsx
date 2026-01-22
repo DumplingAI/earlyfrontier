@@ -17,9 +17,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Early Frontier - AI Agent Use Cases",
+  title: "Early Frontier - Claude Directory",
   description:
-    "A draft site architecture and learning hub for new AI agent use cases, starting with Claude Code workflows and productivity playbooks.",
+    "A curated directory of official Claude resources, community lists, integrations, applications, and education.",
 };
 
 export default function RootLayout({

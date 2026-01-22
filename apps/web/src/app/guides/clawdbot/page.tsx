@@ -64,16 +64,16 @@ export default function ClawdbotGuidePage() {
       title="Clawdbot"
       description="A practical guide to Clawdbot architecture, setup, security, and skills."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Start here</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Start here</h2>
         <div className="grid gap-4">
           {sections.map((section) => (
             <a
               key={section.title}
               href={section.path}
-              className="glass-card rounded-2xl border border-border/70 p-5 transition hover:border-foreground/40"
+              className=" border-2 border-border p-5 transition hover:border-foreground/40"
             >
-              <h3 className="font-serif text-xl">{section.title}</h3>
+              <h3 className="font-sans text-xl">{section.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {section.description}
               </p>
@@ -81,14 +81,14 @@ export default function ClawdbotGuidePage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Official resources</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Official resources</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           <a
             href="https://clawd.bot/"
             target="_blank"
             rel="noreferrer"
-            className="glass-card rounded-xl border border-border/70 px-4 py-3 transition hover:border-foreground/40"
+            className=" border-2 border-border px-4 py-3 transition hover:border-foreground/40"
           >
             Clawdbot site
           </a>
@@ -96,7 +96,7 @@ export default function ClawdbotGuidePage() {
             href="https://docs.clawd.bot/"
             target="_blank"
             rel="noreferrer"
-            className="glass-card rounded-xl border border-border/70 px-4 py-3 transition hover:border-foreground/40"
+            className=" border-2 border-border px-4 py-3 transition hover:border-foreground/40"
           >
             Clawdbot documentation
           </a>
@@ -104,7 +104,7 @@ export default function ClawdbotGuidePage() {
             href="https://github.com/clawdbot/clawdbot"
             target="_blank"
             rel="noreferrer"
-            className="glass-card rounded-xl border border-border/70 px-4 py-3 transition hover:border-foreground/40"
+            className=" border-2 border-border px-4 py-3 transition hover:border-foreground/40"
           >
             Clawdbot GitHub
           </a>

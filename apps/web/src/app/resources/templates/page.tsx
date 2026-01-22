@@ -53,15 +53,15 @@ export default function TemplatesPage() {
       title="Templates"
       description="Ready-to-use prompts and checklists for agent workflows."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Popular templates</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Popular templates</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {templates.map((template) => (
             <div
               key={template.title}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{template.title}</h3>
+              <h3 className="font-sans text-lg">{template.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {template.description}
               </p>
@@ -72,13 +72,13 @@ export default function TemplatesPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Template checklist</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Template checklist</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {checklist.map((item) => (
             <div
               key={item}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {item}
             </div>

@@ -4,25 +4,25 @@ import Link from "next/link";
 import { Github } from "lucide-react";
 
 const navLinks = [
-  { to: "/use-cases", label: "Use Cases" },
-  { to: "/workflows", label: "Workflows" },
-  { to: "/integrations", label: "Integrations" },
-  { to: "/guides", label: "Guides" },
-  { to: "/resources", label: "Resources" },
-  { to: "/about", label: "About" },
+  { to: "/official-resources", label: "Official" },
+  { to: "/community-lists", label: "Lists" },
+  { to: "/extensions-integrations", label: "Extensions" },
+  { to: "/applications", label: "Applications" },
+  { to: "/education", label: "Education" },
+  { to: "/community", label: "Community" },
 ] as const;
 
 export default function Header() {
   return (
-    <div className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-foreground/20 bg-foreground text-background">
+    <div className="sticky top-0 z-30 border-b-2 border-border bg-background">
+      <div className="mx-auto flex w-full max-w-[95vw] items-center justify-between gap-4 px-6 py-6">
+        <Link href="/" className="flex items-center gap-3 text-lg font-bold uppercase tracking-tight">
+          <span className="inline-flex h-8 w-8 items-center justify-center border-2 border-foreground bg-foreground text-background text-xs">
             EF
           </span>
           Early Frontier
         </Link>
-        <nav className="hidden items-center gap-5 text-sm font-medium md:flex">
+        <nav className="hidden items-center gap-6 text-base uppercase tracking-tight font-semibold md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -38,7 +38,7 @@ export default function Header() {
             href="https://github.com/DumplingAI/earlyfrontier"
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40 md:inline-flex"
+            className="hidden border-2 border-border px-6 py-3 text-sm font-semibold uppercase tracking-wide transition hover:border-foreground hover:bg-foreground hover:text-background md:inline-flex"
           >
             <span className="inline-flex items-center gap-2">
               <Github className="size-4" />

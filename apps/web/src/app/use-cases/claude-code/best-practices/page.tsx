@@ -191,7 +191,7 @@ export default function ClaudeCodeBestPracticesPage() {
     <PageShell
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Use Cases", href: "/use-cases" },
+        
         { label: "Claude Code", href: "/use-cases/claude-code" },
         { label: "Best Practices" },
       ]}
@@ -199,15 +199,15 @@ export default function ClaudeCodeBestPracticesPage() {
       title="Best Practices"
       description="Reliable habits and patterns for safe, effective Claude Code development sessions."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Core practices</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Core practices</h2>
         <div className="grid gap-6">
           {corePractices.map((practice) => (
             <div
               key={practice.title}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-xl">{practice.title}</h3>
+              <h3 className="font-sans text-xl">{practice.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {practice.description}
               </p>
@@ -226,13 +226,13 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Context management</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Context management</h2>
         <div className="grid gap-3">
           {contextManagement.map((item) => (
             <div
               key={item.practice}
-              className="glass-card rounded-xl border border-border/70 p-4"
+              className=" border-2 border-border p-4"
             >
               <div className="font-medium text-sm">{item.practice}</div>
               <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
@@ -241,30 +241,30 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Prompting techniques</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Prompting techniques</h2>
         <div className="grid gap-4">
           {promptingTechniques.map((item) => (
             <div
               key={item.technique}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.technique}</h3>
+              <h3 className="font-sans text-lg">{item.technique}</h3>
               <p className="mt-2 text-sm italic text-muted-foreground">{item.example}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Anti-patterns to avoid</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Anti-patterns to avoid</h2>
         <div className="grid gap-4">
           {antiPatterns.map((item) => (
             <div
               key={item.antiPattern}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg text-orange-600/90">{item.antiPattern}</h3>
+              <h3 className="font-sans text-lg text-orange-600/90">{item.antiPattern}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Problem: </span>
                 {item.problem}
@@ -278,19 +278,19 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Code quality guidelines</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Code quality guidelines</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {codeQuality.map((item) => (
             <div
               key={item.area}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.area}</h3>
+              <h3 className="font-sans text-lg">{item.area}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.practices.map((practice) => (
                   <li key={practice} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
                     <span>{practice}</span>
                   </li>
                 ))}
@@ -300,19 +300,19 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Collaboration practices</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Collaboration practices</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {collaborationPractices.map((item) => (
             <div
               key={item.scenario}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.scenario}</h3>
+              <h3 className="font-sans text-lg">{item.scenario}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.practices.map((practice) => (
                   <li key={practice} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
                     <span>{practice}</span>
                   </li>
                 ))}
@@ -322,13 +322,13 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Debugging best practices</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Debugging best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {debuggingBestPractices.map((practice) => (
             <div
               key={practice}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {practice}
             </div>
@@ -336,44 +336,44 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Security practices</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Security practices</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {securityPractices.map((item) => (
             <div
               key={item.area}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.area}</h3>
+              <h3 className="font-sans text-lg">{item.area}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.guideline}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Efficiency tips</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Efficiency tips</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {efficiencyTips.map((item) => (
             <div
               key={item.tip}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{item.tip}</h3>
+              <h3 className="font-sans text-lg">{item.tip}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Related guides</h2>
+      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Related guides</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
             >
               {item.title}
             </a>

@@ -158,7 +158,7 @@ export default function ClaudeCodeFaqPage() {
     <PageShell
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "Use Cases", href: "/use-cases" },
+        
         { label: "Claude Code", href: "/use-cases/claude-code" },
         { label: "FAQ" },
       ]}
@@ -166,119 +166,119 @@ export default function ClaudeCodeFaqPage() {
       title="Frequently Asked Questions"
       description="Common questions about using Claude Code for development and productivity workflows."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Getting started</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Getting started</h2>
         <div className="grid gap-4">
           {gettingStartedFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">MCP and integrations</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">MCP and integrations</h2>
         <div className="grid gap-4">
           {mcpIntegrationFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Workflows and usage</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Workflows and usage</h2>
         <div className="grid gap-4">
           {workflowFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Technical questions</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Technical questions</h2>
         <div className="grid gap-4">
           {technicalFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Productivity workflows</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Productivity workflows</h2>
         <div className="grid gap-4">
           {productivityFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Troubleshooting</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Troubleshooting</h2>
         <div className="grid gap-4">
           {troubleshootingFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Billing and access</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Billing and access</h2>
         <div className="grid gap-4">
           {billingAccessFaqs.map((faq) => (
             <div
               key={faq.question}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{faq.question}</h3>
+              <h3 className="font-sans text-lg">{faq.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{faq.answer}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Related guides</h2>
+      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Related guides</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
             >
               {item.title}
             </a>

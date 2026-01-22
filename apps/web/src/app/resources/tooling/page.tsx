@@ -67,15 +67,15 @@ export default function ToolingPage() {
       title="Tooling Library"
       description="A catalog of the tools that power modern AI agent workflows."
     >
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-card/70 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Core tool categories</h2>
+      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Core tool categories</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {tools.map((tool) => (
             <div
               key={tool.title}
-              className="glass-card rounded-2xl border border-border/70 p-5"
+              className=" border-2 border-border p-5"
             >
-              <h3 className="font-serif text-lg">{tool.title}</h3>
+              <h3 className="font-sans text-lg">{tool.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {tool.description}
               </p>
@@ -83,16 +83,16 @@ export default function ToolingPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">Featured tools</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">Featured tools</h2>
         <div className="grid gap-4">
           {featuredTools.map((tool) => (
             <div
               key={tool.title}
-              className="glass-card rounded-2xl border border-border/70 p-6"
+              className=" border-2 border-border p-6"
             >
               <div className="grid gap-2">
-                <h3 className="font-serif text-lg">{tool.title}</h3>
+                <h3 className="font-sans text-lg">{tool.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {tool.description}
                 </p>
@@ -101,7 +101,7 @@ export default function ToolingPage() {
                 {tool.highlights.map((item) => (
                   <div
                     key={item}
-                    className="glass-card rounded-xl border border-border/70 px-3 py-2"
+                    className=" border-2 border-border px-3 py-2"
                   >
                     {item}
                   </div>
@@ -114,7 +114,7 @@ export default function ToolingPage() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+                    className="inline-flex items-center  border-2 border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
                   >
                     {link.label}
                   </a>
@@ -124,13 +124,13 @@ export default function ToolingPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6 rounded-[32px] border border-border/70 bg-background/80 p-8 md:p-12">
-        <h2 className="font-serif text-2xl">How to evaluate tools</h2>
+      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
+        <h2 className="font-sans text-2xl">How to evaluate tools</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {evaluation.map((item) => (
             <div
               key={item}
-              className="glass-card rounded-xl border border-border/70 px-4 py-3"
+              className=" border-2 border-border px-4 py-3"
             >
               {item}
             </div>
