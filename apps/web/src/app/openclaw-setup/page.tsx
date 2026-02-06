@@ -223,50 +223,55 @@ export default function OpenclawSetupPage() {
             </p>
           </div>
 
-          {/* Implementation pricing */}
-          <div className="grid gap-4">
-            <h2 className="font-serif italic text-3xl">Implementation</h2>
-            <div className="grid gap-4 md:grid-cols-3">
-              {implementationPlans.map((plan) => (
-                <div key={plan.title} className="grid gap-2">
-                  <h3 className="text-base font-medium">{plan.title}</h3>
-                  <p className="text-2xl font-bold">{plan.price}</p>
-                  <p className="text-sm text-muted-foreground">{plan.details}</p>
-                  {plan.checkoutUrl ? (
-                    <a
-                      href={plan.checkoutUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-1 inline-flex w-fit items-center border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-2 text-sm font-semibold transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
-                    >
-                      Checkout
-                    </a>
-                  ) : null}
-                </div>
-              ))}
+          {/* Pricing */}
+          <div className="grid gap-10 rounded-2xl border border-[rgba(167,139,113,0.25)] bg-[rgba(167,139,113,0.04)] p-8 md:p-10">
+            <div className="grid gap-5">
+              <h2 className="font-serif italic text-3xl gold-text">Implementation</h2>
+              <div className="grid gap-4 md:grid-cols-3">
+                {implementationPlans.map((plan) => (
+                  <div key={plan.title} className="grid gap-2 rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] p-5">
+                    <h3 className="text-base font-medium">{plan.title}</h3>
+                    <p className="text-2xl font-bold text-[#c9b8a0]">{plan.price}</p>
+                    <p className="text-sm text-muted-foreground">{plan.details}</p>
+                    {plan.checkoutUrl ? (
+                      <a
+                        href={plan.checkoutUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-1 inline-flex w-fit items-center rounded-xl bg-gradient-to-r from-[#a78b71] to-[#b89b7e] px-4 py-2 text-sm font-semibold text-[#0a0a0a] transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,139,113,0.3)]"
+                      >
+                        Checkout
+                      </a>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Managed Care pricing */}
-          <div className="grid gap-4">
-            <h2 className="font-serif italic text-3xl">Managed Care</h2>
-            <div className="grid gap-4 md:grid-cols-3">
-              {managedCarePlans.map((plan) => (
-                <div key={plan.title} className="grid gap-2">
-                  <h3 className="text-base font-medium">{plan.title}</h3>
-                  <p className="text-2xl font-bold">{plan.price}</p>
-                  <p className="text-sm text-muted-foreground">{plan.details}</p>
-                </div>
-              ))}
+            <div className="grid gap-5 border-t border-[rgba(167,139,113,0.15)] pt-10">
+              <h2 className="font-serif italic text-3xl gold-text">Managed Care</h2>
+              <div className="grid gap-4 md:grid-cols-3">
+                {managedCarePlans.map((plan) => (
+                  <div key={plan.title} className="grid gap-2 rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.03)] p-5">
+                    <h3 className="text-base font-medium">{plan.title}</h3>
+                    <p className="text-2xl font-bold text-[#c9b8a0]">{plan.price}</p>
+                    <p className="text-sm text-muted-foreground">{plan.details}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            <a
-              href="https://x.com/yangpten"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-2 inline-flex w-fit items-center border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-2.5 text-sm font-semibold transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
-            >
-              DM @yangpten
-            </a>
+
+            <div className="grid gap-2">
+              <p className="text-sm text-muted-foreground">Have a question?</p>
+              <a
+                href="https://x.com/yangpten"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-fit items-center rounded-xl bg-gradient-to-r from-[#a78b71] to-[#b89b7e] px-5 py-3 text-sm font-semibold text-[#0a0a0a] transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,139,113,0.3)]"
+              >
+                DM @yangpten
+              </a>
+            </div>
           </div>
 
           {/* Security */}
