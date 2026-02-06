@@ -2,16 +2,16 @@ import PageShell from "@/components/page-shell";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "What is Clawdbot? | Early Frontier",
+  title: "What is Openclaw? | Early Frontier",
   description:
-    "Clawdbot is a gateway that connects chat apps to Pi agents for AI-powered workflows.",
+    "Openclaw is a gateway that connects chat apps to Pi agents for AI-powered workflows.",
 };
 
 const differences = [
   {
     title: "Gateway-first",
     description:
-      "Instead of a single-platform bot, Clawdbot routes messages from multiple chat apps through one gateway.",
+      "Instead of a single-platform bot, Openclaw routes messages from multiple chat apps through one gateway.",
   },
   {
     title: "Agent bridge",
@@ -41,30 +41,30 @@ const gatewayModel = [
   "Responses return through the same channel or surface the user started from.",
 ] as const;
 
-export default function ClawdbotOverviewPage() {
+export default function OpenclawOverviewPage() {
   return (
     <PageShell
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Guides", href: "/guides" },
-        { label: "Clawdbot", href: "/guides/clawdbot" },
+        { label: "Openclaw", href: "/guides/openclaw" },
         { label: "Overview" },
       ]}
-      eyebrow="Clawdbot"
-      title="What is Clawdbot?"
-      description="Clawdbot is a gateway that connects chat apps to Pi agents for AI-powered workflows."
+      eyebrow="Openclaw"
+      title="What is Openclaw?"
+      description="Openclaw is a gateway that connects chat apps to Pi agents for AI-powered workflows."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">At a glance</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">At a glance</h2>
         <p className="text-sm text-muted-foreground">
-          Clawdbot connects familiar chat apps to an AI agent by routing every
+          Openclaw connects familiar chat apps to an AI agent by routing every
           message through a local gateway and a Pi agent running in RPC mode.
         </p>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {gatewayModel.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -72,24 +72,24 @@ export default function ClawdbotOverviewPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Who it is for</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Who it is for</h2>
         <p className="text-sm text-muted-foreground">
-          Clawdbot is best when you want to keep your team or personal workflow
+          Openclaw is best when you want to keep your team or personal workflow
           inside the chat tools you already use, while still giving the agent
           access to tools and multi-step workflows.
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">How it differs from typical chatbots</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">How it differs from typical chatbots</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {differences.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -98,13 +98,13 @@ export default function ClawdbotOverviewPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Supported chat apps</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Supported chat apps</h2>
         <div className="grid gap-3 text-sm text-muted-foreground md:grid-cols-2">
           {supportedChannels.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>

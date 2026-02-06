@@ -33,30 +33,30 @@ export default function SearchPage() {
       title="Find a workflow fast"
       description="Search across use cases, guides, and workflow playbooks."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Search</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Search</h2>
         <form className="flex flex-col gap-3 md:flex-row">
           <input
             type="search"
             placeholder="Search workflows, guides, or integrations"
-            className="h-12 flex-1  border-2 border-border bg-background px-4 text-sm"
+            className="h-12 flex-1  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] rounded-xl px-4 text-sm"
           />
           <button
             type="submit"
-            className="h-12  border-2 border-foreground/20 bg-foreground px-6 text-xs font-semibold uppercase tracking-[0.2em] text-background"
+            className="h-12  border border-[rgba(255,255,255,0.1)] rounded-xl bg-gradient-to-r from-[#a78b71] to-[#b89b7e] px-6 text-xs font-medium tracking-normal text-[#0a0a0a]"
           >
             Search
           </button>
         </form>
         <div className="grid gap-2 text-sm text-muted-foreground">
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <span className="text-xs tracking-widest text-[#c9b8a0]">
             Popular searches
           </span>
           <div className="flex flex-wrap gap-2">
             {popular.map((item) => (
               <span
                 key={item}
-                className=" border-2 border-border px-3 py-1"
+                className=" border border-[rgba(255,255,255,0.08)] rounded-lg px-3 py-1"
               >
                 {item}
               </span>
@@ -64,28 +64,28 @@ export default function SearchPage() {
           </div>
         </div>
       </section>
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Search tips</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Search tips</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {tips.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
           ))}
         </div>
       </section>
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Browse by category</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Browse by category</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {categories.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>

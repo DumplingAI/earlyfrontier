@@ -3,7 +3,7 @@
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export function useParallax(distance: number = 200) {
+export function useParallax(distance: number = 80) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -23,7 +23,7 @@ export function useScaleOnScroll() {
     offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.05]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return { ref, scale, opacity };

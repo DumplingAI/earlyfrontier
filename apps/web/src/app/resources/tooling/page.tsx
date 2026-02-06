@@ -31,7 +31,7 @@ const tools = [
 
 const featuredTools = [
   {
-    title: "Clawdbot",
+    title: "Openclaw",
     description:
       "A local gateway that bridges WhatsApp, Telegram, Discord, and iMessage to Pi agents so you can message an assistant from your phone.",
     highlights: [
@@ -42,8 +42,9 @@ const featuredTools = [
     links: [
       { label: "Site", href: "https://clawd.bot/" },
       { label: "Docs", href: "https://docs.clawd.bot/" },
-      { label: "GitHub", href: "https://github.com/clawdbot/clawdbot" },
-      { label: "Guide", href: "/guides/clawdbot" },
+      { label: "GitHub", href: "https://github.com/openclaw/openclaw" },
+      { label: "Guide", href: "/guides/openclaw" },
+      { label: "Setup", href: "/openclaw-setup" },
     ],
   },
 ] as const;
@@ -67,15 +68,15 @@ export default function ToolingPage() {
       title="Tooling Library"
       description="A catalog of the tools that power modern AI agent workflows."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Core tool categories</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Core tool categories</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {tools.map((tool) => (
             <div
               key={tool.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{tool.title}</h3>
+              <h3 className="font-serif italic text-lg">{tool.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {tool.description}
               </p>
@@ -83,16 +84,16 @@ export default function ToolingPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Featured tools</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Featured tools</h2>
         <div className="grid gap-4">
           {featuredTools.map((tool) => (
             <div
               key={tool.title}
-              className=" border-2 border-border p-6"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-6"
             >
               <div className="grid gap-2">
-                <h3 className="font-sans text-lg">{tool.title}</h3>
+                <h3 className="font-serif italic text-lg">{tool.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {tool.description}
                 </p>
@@ -101,7 +102,7 @@ export default function ToolingPage() {
                 {tool.highlights.map((item) => (
                   <div
                     key={item}
-                    className=" border-2 border-border px-3 py-2"
+                    className=" border border-[rgba(255,255,255,0.08)] rounded-lg px-3 py-2"
                   >
                     {item}
                   </div>
@@ -114,7 +115,7 @@ export default function ToolingPage() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center  border-2 border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+                    className="inline-flex items-center  border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-2 text-xs font-medium tracking-widest transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
                   >
                     {link.label}
                   </a>
@@ -124,13 +125,13 @@ export default function ToolingPage() {
           ))}
         </div>
       </section>
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">How to evaluate tools</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">How to evaluate tools</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {evaluation.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>

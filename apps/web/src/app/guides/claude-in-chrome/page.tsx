@@ -120,13 +120,13 @@ export default function ClaudeInChromeGuidePage() {
       title="Claude in Chrome"
       description="Use Claude in Chrome for browser automation and learn when to choose MCP instead."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Overview</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Overview</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {overview.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -134,19 +134,19 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Chrome vs MCP</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Chrome vs MCP</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {whenToUse.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.bullets.map((bullet) => (
                   <li key={bullet} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -156,13 +156,13 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Setup</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Setup</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {setupSteps.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -170,13 +170,13 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Permissions Claude will request</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Permissions Claude will request</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {permissions.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -184,13 +184,13 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Chrome features</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Chrome features</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {chromeFeatures.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -198,13 +198,13 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Integration notes</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Integration notes</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {integrationNotes.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -212,13 +212,13 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Safety checklist</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Safety checklist</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {safety.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -226,15 +226,15 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Example workflows</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Example workflows</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {workflows.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -243,15 +243,15 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Permission modes</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Permission modes</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {permissionModes.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -260,14 +260,14 @@ export default function ClaudeInChromeGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-4  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Related resources</h2>
+      <section className="grid gap-4  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Related resources</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3 text-sm transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
               {item.title}
             </a>

@@ -193,12 +193,12 @@ export default function MCPForBeginnersPage() {
       title="MCP for Beginners"
       description="A practical introduction to connecting tools to AI agents."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
         <div className="grid gap-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-xs tracking-widest text-[#c9b8a0]">
             Author: Manus AI - January 12, 2026
           </p>
-          <h2 className="font-sans text-2xl">Introduction</h2>
+          <h2 className="font-serif italic text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
           The Model Context Protocol (MCP) is an open standard for connecting AI
@@ -213,13 +213,13 @@ export default function MCPForBeginnersPage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">TL;DR</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">TL;DR</h2>
         <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
           {tldr.map((item) => (
             <span
               key={item}
-              className=" border-2 border-border px-4 py-2"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-2"
             >
               {item}
             </span>
@@ -227,11 +227,11 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">What is MCP?</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">What is MCP?</h2>
         <div className="grid gap-4">
-          <div className=" border-2 border-border p-5">
-            <h3 className="font-sans text-xl">
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+            <h3 className="font-serif italic text-xl">
               A standard protocol for tool connections
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
@@ -240,8 +240,8 @@ export default function MCPForBeginnersPage() {
               standardization is what makes integrations reusable.
             </p>
           </div>
-          <div className=" border-2 border-border p-5">
-            <h3 className="font-sans text-xl">How it differs from one-off plugins</h3>
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+            <h3 className="font-serif italic text-xl">How it differs from one-off plugins</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Rather than building bespoke integrations per client, MCP lets a
               server expose capabilities once and makes them available to any
@@ -249,8 +249,8 @@ export default function MCPForBeginnersPage() {
               consistency across tools.
             </p>
           </div>
-          <div className=" border-2 border-border p-5">
-            <h3 className="font-sans text-xl">When MCP is the right fit</h3>
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+            <h3 className="font-serif italic text-xl">When MCP is the right fit</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Use MCP when your workflows need data or actions from outside your
               AI client: files, tickets, databases, email, calendars, or web
@@ -261,15 +261,15 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Core concepts</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Core concepts</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {coreConcepts.map((concept) => (
             <div
               key={concept.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{concept.title}</h3>
+              <h3 className="font-serif italic text-lg">{concept.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {concept.description}
               </p>
@@ -278,15 +278,15 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Getting started</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Getting started</h2>
         <div className="grid gap-4 text-sm text-muted-foreground">
           {gettingStarted.map((item) => (
             <div
               key={item.step}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+              <div className="text-xs tracking-widest text-[#c9b8a0]/70">
                 {item.step}
               </div>
               <p className="mt-2">{item.description}</p>
@@ -295,18 +295,18 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Use cases</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Use cases</h2>
         <div className="grid gap-4">
           {useCases.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+              <div className="text-xs tracking-widest text-[#c9b8a0]/70">
                 {item.category}
               </div>
-              <h3 className="mt-2 font-sans text-lg">{item.title}</h3>
+              <h3 className="mt-2 font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -325,19 +325,19 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Common issues</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Common issues</h2>
         <div className="grid gap-4">
           {commonIssues.map((item) => (
             <div
               key={item.issue}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.issue}</h3>
+              <h3 className="font-serif italic text-lg">{item.issue}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.solutions.map((solution) => (
                   <li key={solution} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{solution}</span>
                   </li>
                 ))}
@@ -347,13 +347,13 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Best practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((practice) => (
             <div
               key={practice}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {practice}
             </div>
@@ -361,20 +361,20 @@ export default function MCPForBeginnersPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Common server categories</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Common server categories</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {popularServers.map((group) => (
             <div
               key={group.category}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{group.category}</h3>
+              <h3 className="font-serif italic text-lg">{group.category}</h3>
               <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
                 {group.servers.map((server) => (
                   <div
                     key={server.name}
-                    className="rounded-lg border-2 border-border/60 bg-background/60 px-3 py-2"
+                    className="rounded-lg border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] rounded-lg px-3 py-2"
                   >
                     <span className="font-medium text-foreground">
                       {server.name}

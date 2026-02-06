@@ -256,8 +256,8 @@ export default function ClaudeCodeMcpIntegrationsPage() {
       title="MCP Integrations"
       description="Extend Claude Code with MCP servers to connect your tools and automate multi-step workflows."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Overview</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Overview</h2>
         <p className="text-sm text-muted-foreground">
           MCP servers connect Claude Code to external tools, services, and data
           sources through a standardized protocol. That makes integrations
@@ -269,16 +269,16 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Popular integrations</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Popular integrations</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {popularIntegrations.map((integration) => (
             <div
               key={integration.name}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
               <div className="flex items-start justify-between">
-                <h3 className="font-sans text-xl">{integration.name}</h3>
+                <h3 className="font-serif italic text-xl">{integration.name}</h3>
                 <span className=" bg-background px-2 py-1 text-xs">
                   {integration.setup}
                 </span>
@@ -287,7 +287,7 @@ export default function ClaudeCodeMcpIntegrationsPage() {
                 {integration.description}
               </p>
               <div className="mt-3">
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+                <div className="text-xs tracking-widest text-[#c9b8a0]/70">
                   Capabilities
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -306,20 +306,20 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Setup guide</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Setup guide</h2>
         <div className="grid gap-4">
           {setupSteps.map((item, index) => (
             <div
               key={item.step}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
               <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border-2 border-border bg-background text-xs font-medium">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] rounded-md text-xs font-medium">
                   {index + 1}
                 </span>
                 <div className="flex-1">
-                  <h3 className="font-sans text-lg">{item.step}</h3>
+                  <h3 className="font-serif italic text-lg">{item.step}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
                     {item.description}
                   </p>
@@ -332,7 +332,7 @@ export default function ClaudeCodeMcpIntegrationsPage() {
                     <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
                       {item.resources.map((resource) => (
                         <li key={resource} className="flex items-start gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                           <span>{resource}</span>
                         </li>
                       ))}
@@ -342,7 +342,7 @@ export default function ClaudeCodeMcpIntegrationsPage() {
                     <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
                       {item.tips.map((tip) => (
                         <li key={tip} className="flex items-start gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                           <span>{tip}</span>
                         </li>
                       ))}
@@ -355,15 +355,15 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Integration categories</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Integration categories</h2>
         <div className="grid gap-4">
           {integrationCategories.map((category) => (
             <div
               key={category.category}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-xl">{category.category}</h3>
+              <h3 className="font-serif italic text-xl">{category.category}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {category.tools.map((tool) => (
                   <span
@@ -383,20 +383,20 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Real-world use case examples</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Real-world use case examples</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {useCaseExamples.map((example) => (
             <div
               key={example.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{example.title}</h3>
+              <h3 className="font-serif italic text-lg">{example.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {example.description}
               </p>
               <div className="mt-3">
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+                <div className="text-xs tracking-widest text-[#c9b8a0]/70">
                   Integrations Used
                 </div>
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -415,8 +415,8 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Building custom MCP servers</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Building custom MCP servers</h2>
         <p className="text-sm text-muted-foreground">
           When existing servers don’t meet your needs, build a custom MCP server
           using the SDK. This is especially useful for internal tools, custom
@@ -426,9 +426,9 @@ export default function ClaudeCodeMcpIntegrationsPage() {
           {customServerGuide.map((item) => (
             <div
               key={item.reason}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.reason}</h3>
+              <h3 className="font-serif italic text-lg">{item.reason}</h3>
               <p className="mt-2 text-sm text-muted-foreground/70">
                 Example: {item.example}
               </p>
@@ -441,15 +441,15 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Security considerations</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Security considerations</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {securityConsiderations.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -458,13 +458,13 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Best practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((practice) => (
             <div
               key={practice}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {practice}
             </div>
@@ -472,19 +472,19 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Troubleshooting</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Troubleshooting</h2>
         <div className="grid gap-4">
           {troubleshooting.map((item) => (
             <div
               key={item.issue}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.issue}</h3>
+              <h3 className="font-serif italic text-lg">{item.issue}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.solutions.map((solution) => (
                   <li key={solution} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{solution}</span>
                   </li>
                 ))}
@@ -494,14 +494,14 @@ export default function ClaudeCodeMcpIntegrationsPage() {
         </div>
       </section>
 
-      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Related resources</h2>
+      <section className="grid gap-4  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Related resources</h2>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3 text-sm transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
               {item.title}
             </a>

@@ -134,8 +134,8 @@ export default function ClaudeCodePersonalProductivityPage() {
       title="Personal Productivity"
       description="Automate admin work, manage communications, and coordinate tasks—all in natural language through MCP-connected tools."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Overview</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Overview</h2>
         <p className="text-sm text-muted-foreground">
           Personal productivity workflows help you reclaim time spent on repetitive admin tasks. By connecting Claude Code to your email, calendar, task management, and research tools through MCP, you can automate the busywork that consumes hours each week. Instead of manually checking emails, updating tasks, and researching topics, you describe what you need in natural language and Claude handles the execution.
         </p>
@@ -144,16 +144,16 @@ export default function ClaudeCodePersonalProductivityPage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Core productivity workflows</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Core productivity workflows</h2>
         <div className="grid gap-4">
           {workflows.map((workflow) => (
             <a
               key={workflow.title}
               href={workflow.path}
-              className=" border-2 border-border p-5 transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5 transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
-              <h3 className="font-sans text-xl">{workflow.title}</h3>
+              <h3 className="font-serif italic text-xl">{workflow.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{workflow.description}</p>
               <p className="mt-3 text-xs text-muted-foreground/70">
                 <span className="font-medium">When to use: </span>
@@ -164,15 +164,15 @@ export default function ClaudeCodePersonalProductivityPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Additional workflows</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Additional workflows</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {additionalWorkflows.map((workflow) => (
             <div
               key={workflow.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-xl">{workflow.title}</h3>
+              <h3 className="font-serif italic text-xl">{workflow.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{workflow.description}</p>
               <p className="mt-3 text-xs text-muted-foreground/70">
                 <span className="font-medium">When to use: </span>
@@ -183,31 +183,31 @@ export default function ClaudeCodePersonalProductivityPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Why use Claude Code for productivity</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Why use Claude Code for productivity</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {benefits.map((item) => (
             <div
               key={item.benefit}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.benefit}</h3>
+              <h3 className="font-serif italic text-lg">{item.benefit}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Quick wins to try today</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Quick wins to try today</h2>
         <div className="grid gap-4">
           {quickWins.map((item) => (
             <div
               key={item.task}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="font-sans text-lg">{item.task}</h3>
+                <h3 className="font-serif italic text-lg">{item.task}</h3>
                 <span className="shrink-0 text-xs text-muted-foreground/70">{item.time}</span>
               </div>
               <div className="mt-3 rounded-lg bg-background/50 p-3 text-sm italic text-muted-foreground">
@@ -218,13 +218,13 @@ export default function ClaudeCodePersonalProductivityPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Productivity principles</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Productivity principles</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {productivityPrinciples.map((principle) => (
             <div
               key={principle}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {principle}
             </div>
@@ -232,15 +232,15 @@ export default function ClaudeCodePersonalProductivityPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Popular integration combinations</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Popular integration combinations</h2>
         <div className="grid gap-4">
           {integrationCombinations.map((item) => (
             <div
               key={item.combo}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.combo}</h3>
+              <h3 className="font-serif italic text-lg">{item.combo}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.useCase}</p>
             </div>
           ))}

@@ -30,8 +30,8 @@ export default function CommunityPage() {
       title={section.title}
       description={section.summary}
     >
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">How we keep this useful</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">How we keep this useful</h2>
         <p className="text-sm text-muted-foreground">
           The directory stays valuable when the community keeps it focused,
           current, and practical.
@@ -40,7 +40,7 @@ export default function CommunityPage() {
           {communityValues.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>

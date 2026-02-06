@@ -186,11 +186,11 @@ export default function ClaudeCodeGettingStartedPage() {
       title="Getting Started with Claude Code"
       description="Everything you need to install, configure, and run your first successful Claude Code session."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Prerequisites</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Prerequisites</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {prerequisites.map((item) => (
-            <div key={item.item} className=" border-2 border-border p-4">
+            <div key={item.item} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-xl p-4">
               <div className="font-medium text-sm">{item.item}</div>
               <p className="mt-1 text-xs text-muted-foreground">{item.description}</p>
             </div>
@@ -198,17 +198,17 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Installation</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Installation</h2>
         <div className="grid gap-4">
           {installationSteps.map((item, index) => (
-            <div key={item.step} className=" border-2 border-border p-5">
+            <div key={item.step} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
               <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border-2 border-border bg-background text-xs font-medium">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] rounded-md text-xs font-medium">
                   {index + 1}
                 </span>
                 <div className="flex-1">
-                  <h3 className="font-sans text-lg">{item.step}</h3>
+                  <h3 className="font-serif italic text-lg">{item.step}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                   <pre className="mt-3 overflow-x-auto rounded-lg bg-background/50 p-3 text-xs">
                     <code>$ {item.command}</code>
@@ -220,8 +220,8 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Browser automation option</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Browser automation option</h2>
         <p className="text-sm text-muted-foreground">
           If you prefer to automate workflows inside web apps, Claude in Chrome
           provides browser-based automation without MCP setup. Use it for tasks
@@ -229,23 +229,23 @@ export default function ClaudeCodeGettingStartedPage() {
         </p>
         <a
           href="/guides/claude-in-chrome"
-          className="w-fit  border-2 border-foreground/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition hover:border-foreground/40"
+          className="w-fit  border border-[rgba(255,255,255,0.1)] rounded-xl px-4 py-2 text-xs font-medium tracking-widest transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
         >
           Learn Claude in Chrome
         </a>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Your first session</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Your first session</h2>
         <div className="grid gap-4">
           {firstSession.map((item, index) => (
-            <div key={item.title} className=" border-2 border-border p-5">
+            <div key={item.title} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
               <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border-2 border-border bg-background text-xs font-medium">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] rounded-md text-xs font-medium">
                   {index + 1}
                 </span>
                 <div className="flex-1">
-                  <h3 className="font-sans text-lg">{item.title}</h3>
+                  <h3 className="font-serif italic text-lg">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                   {item.example && (
                     <div className="mt-3 rounded-lg bg-background/50 p-3 text-sm italic text-muted-foreground">
@@ -259,12 +259,12 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Good first tasks</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Good first tasks</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {commonFirstTasks.map((item) => (
-            <div key={item.task} className=" border-2 border-border p-5">
-              <h3 className="font-sans text-lg">{item.task}</h3>
+            <div key={item.task} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+              <h3 className="font-serif italic text-lg">{item.task}</h3>
               <p className="mt-2 text-sm italic text-muted-foreground">"{item.prompt}"</p>
               <p className="mt-3 text-xs text-muted-foreground/70">{item.when}</p>
             </div>
@@ -272,24 +272,24 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Essential tips</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Essential tips</h2>
         <div className="grid gap-4">
           {tips.map((item) => (
-            <div key={item.tip} className=" border-2 border-border p-5">
-              <h3 className="font-sans text-lg">{item.tip}</h3>
+            <div key={item.tip} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+              <h3 className="font-serif italic text-lg">{item.tip}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Common beginner mistakes</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Common beginner mistakes</h2>
         <div className="grid gap-4">
           {commonMistakes.map((item) => (
-            <div key={item.mistake} className=" border-2 border-border p-5">
-              <h3 className="font-sans text-lg text-orange-600/90">{item.mistake}</h3>
+            <div key={item.mistake} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
+              <h3 className="font-serif italic text-lg text-orange-600/90">{item.mistake}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Solution: </span>
                 {item.solution}
@@ -299,11 +299,11 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Keyboard shortcuts</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Keyboard shortcuts</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {keyboardShortcuts.map((item) => (
-            <div key={item.shortcut} className=" border-2 border-border p-4">
+            <div key={item.shortcut} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-xl p-4">
               <div className="font-mono text-sm font-medium">{item.shortcut}</div>
               <p className="mt-1 text-xs text-muted-foreground">{item.action}</p>
             </div>
@@ -311,16 +311,16 @@ export default function ClaudeCodeGettingStartedPage() {
         </div>
       </section>
 
-      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Next steps</h2>
+      <section className="grid gap-4  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Next steps</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {nextSteps.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border p-5 transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5 transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </a>
           ))}

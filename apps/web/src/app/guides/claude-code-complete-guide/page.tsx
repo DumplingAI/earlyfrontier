@@ -192,12 +192,12 @@ export default function ClaudeCodeCompleteGuidePage() {
       title="A Comprehensive Guide to Claude Code"
       description="Developer workflows, productivity use cases, and MCP-powered integrations in one guide."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
         <div className="grid gap-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-xs tracking-widest text-[#c9b8a0]">
             Author: Manus AI - January 8, 2026
           </p>
-          <h2 className="font-sans text-2xl">Introduction</h2>
+          <h2 className="font-serif italic text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
           Claude Code is a CLI tool for working with codebases through natural
@@ -208,13 +208,13 @@ export default function ClaudeCodeCompleteGuidePage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">TL;DR</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">TL;DR</h2>
         <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
           {playbookTldr.map((item) => (
             <span
               key={item}
-              className=" border-2 border-border px-4 py-2"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-2"
             >
               {item}
             </span>
@@ -222,32 +222,32 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Getting started</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Getting started</h2>
         <div className="grid gap-4 text-sm text-muted-foreground">
-          <div className=" border-2 border-border p-5">
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
             Install Claude Code, authenticate, and open a project folder in your
             terminal.
           </div>
-          <div className=" border-2 border-border p-5">
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
             Provide a clear goal and request a plan before any multi-file edits.
           </div>
-          <div className=" border-2 border-border p-5">
+          <div className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
             Review the diff, run tests, and iterate on the plan if requirements
             change.
           </div>
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Developer workflows</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Developer workflows</h2>
         <div className="grid gap-4">
           {workflowTable.map((row) => (
             <div
               key={row.workflow}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-xl">{row.workflow}</h3>
+              <h3 className="font-serif italic text-xl">{row.workflow}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {row.description}
               </p>
@@ -256,23 +256,23 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Beginner playbook</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Beginner playbook</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {beginnerPlaybook.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border p-5 transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5 transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
-              <h3 className="font-sans text-xl">{item.title}</h3>
+              <h3 className="font-serif italic text-xl">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.steps.map((step) => (
                   <li key={step} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5  bg-[#a78b71] rounded-full" />
                     <span>{step}</span>
                   </li>
                 ))}
@@ -282,13 +282,13 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Personal productivity use cases</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Personal productivity use cases</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {productivity.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -296,15 +296,15 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Claude in Chrome vs MCP</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Claude in Chrome vs MCP</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {chromeVsMcp.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -315,7 +315,7 @@ export default function ClaudeCodeCompleteGuidePage() {
           {chromeUseCases.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -323,13 +323,13 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Quality checklist</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Quality checklist</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -337,15 +337,15 @@ export default function ClaudeCodeCompleteGuidePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Tooling notes</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Tooling notes</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {toolingNotes.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>

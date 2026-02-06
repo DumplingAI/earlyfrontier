@@ -2,9 +2,9 @@ import PageShell from "@/components/page-shell";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Clawdbot Architecture | Early Frontier",
+  title: "Openclaw Architecture | Early Frontier",
   description:
-    "Understand the Clawdbot gateway, ports, sessions, and message routing to Pi agents.",
+    "Understand the Openclaw gateway, ports, sessions, and message routing to Pi agents.",
 };
 
 const ports = [
@@ -30,22 +30,22 @@ const sessions = [
   "Sessions are per-sender by default, giving each chat a dedicated context stream.",
 ] as const;
 
-export default function ClawdbotArchitecturePage() {
+export default function OpenclawArchitecturePage() {
   return (
     <PageShell
       breadcrumbs={[
         { label: "Home", href: "/" },
         { label: "Guides", href: "/guides" },
-        { label: "Clawdbot", href: "/guides/clawdbot" },
+        { label: "Openclaw", href: "/guides/openclaw" },
         { label: "Architecture" },
       ]}
-      eyebrow="Clawdbot"
+      eyebrow="Openclaw"
       title="Architecture: Gateway + Pi agents"
       description="Understand the gateway, ports, sessions, and how messages route to Pi agents."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">System diagram</h2>
-        <pre className="overflow-x-auto  border-2 border-border bg-background p-6 text-sm">
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">System diagram</h2>
+        <pre className="overflow-x-auto  border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-xl p-6 text-sm">
 {`WhatsApp / Telegram / Discord / iMessage
         │
         ▼
@@ -63,15 +63,15 @@ export default function ClawdbotArchitecturePage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Gateway interfaces</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Gateway interfaces</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {ports.map((item) => (
             <div
               key={item.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.title}</h3>
+              <h3 className="font-serif italic text-lg">{item.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -80,13 +80,13 @@ export default function ClawdbotArchitecturePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Sessions and ownership</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Sessions and ownership</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {sessions.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -94,13 +94,13 @@ export default function ClawdbotArchitecturePage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Message flow</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Message flow</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {routingSteps.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>

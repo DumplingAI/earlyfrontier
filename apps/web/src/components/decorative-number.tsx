@@ -10,14 +10,14 @@ interface DecorativeNumberProps {
 }
 
 export function DecorativeNumber({ number, className }: DecorativeNumberProps) {
-  const { ref, y, opacity } = useParallax(100);
+  const { ref, y, opacity } = useParallax(80);
 
   return (
     <motion.div
       ref={ref}
       style={{ y, opacity }}
       className={cn(
-        "absolute text-decorative-number font-bold text-muted pointer-events-none select-none",
+        "absolute text-decorative-number font-bold text-[#a78b71] opacity-[0.07] pointer-events-none select-none",
         className
       )}
       aria-hidden="true"

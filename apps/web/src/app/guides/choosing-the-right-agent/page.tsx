@@ -230,12 +230,12 @@ export default function ChoosingTheRightAgentPage() {
       title="Choosing the Right AI Agent"
       description="A decision framework for selecting the best agent setup for your workflow."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
         <div className="grid gap-2">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-xs tracking-widest text-[#c9b8a0]">
             Author: Manus AI - January 12, 2026
           </p>
-          <h2 className="font-sans text-2xl">Introduction</h2>
+          <h2 className="font-serif italic text-2xl">Introduction</h2>
         </div>
         <p className="text-sm text-muted-foreground">
           Choosing the right agent isn’t about a single “best” tool. It’s about
@@ -250,13 +250,13 @@ export default function ChoosingTheRightAgentPage() {
         </p>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">TL;DR</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">TL;DR</h2>
         <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
           {tldr.map((item) => (
             <span
               key={item}
-              className=" border-2 border-border px-4 py-2"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-2"
             >
               {item}
             </span>
@@ -264,15 +264,15 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Match workflow complexity</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Match workflow complexity</h2>
         <div className="grid gap-4 md:grid-cols-3">
           {workflowComplexity.map((item) => (
             <div
               key={item.level}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.level}</h3>
+              <h3 className="font-serif italic text-lg">{item.level}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -295,15 +295,15 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Integration needs</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Integration needs</h2>
         <div className="grid gap-4">
           {integrationNeeds.map((item) => (
             <div
               key={item.category}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.category}</h3>
+              <h3 className="font-serif italic text-lg">{item.category}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.description}
               </p>
@@ -320,19 +320,19 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Agent types at a glance</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Agent types at a glance</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {agentComparison.map((item) => (
             <div
               key={item.agent}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.agent}</h3>
+              <h3 className="font-serif italic text-lg">{item.agent}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.strengths.map((strength) => (
                   <li key={strength} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{strength}</span>
                   </li>
                 ))}
@@ -346,15 +346,15 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Practical scenarios</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Practical scenarios</h2>
         <div className="grid gap-4">
           {practicalScenarios.map((scenario) => (
             <div
               key={scenario.scenario}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{scenario.scenario}</h3>
+              <h3 className="font-serif italic text-lg">{scenario.scenario}</h3>
               <div className="mt-3 flex flex-wrap gap-2">
                 {scenario.needs.map((need) => (
                   <span
@@ -377,15 +377,15 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Decision checklist</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Decision checklist</h2>
         <div className="grid gap-4">
           {decisionQuestions.map((item) => (
             <div
               key={item.question}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.question}</h3>
+              <h3 className="font-serif italic text-lg">{item.question}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Yes: </span>
                 {item.yes}
@@ -399,13 +399,13 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Best practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((item) => (
             <div
               key={item}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {item}
             </div>
@@ -413,15 +413,15 @@ export default function ChoosingTheRightAgentPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Common mistakes</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Common mistakes</h2>
         <div className="grid gap-4">
           {commonMistakes.map((item) => (
             <div
               key={item.mistake}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.mistake}</h3>
+              <h3 className="font-serif italic text-lg">{item.mistake}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {item.solution}
               </p>

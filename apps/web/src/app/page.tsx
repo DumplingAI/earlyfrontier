@@ -12,14 +12,14 @@ export default function Home() {
   return (
     <div className="">
       <main className="mx-auto flex w-full max-w-[95vw] flex-col gap-16 px-6 pb-32 pt-12">
-        <section className="grid gap-8 border-2 border-border bg-background p-12 md:p-16">
+        <section className="grid gap-8 border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
           <div className="flex flex-col gap-6">
-            <div className="flex flex-wrap items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-3 text-sm font-medium tracking-widest text-[#c9b8a0]">
               <span>Early Frontier</span>
-              <span className="h-1 w-1 bg-muted-foreground/60" />
+              <span className="h-1 w-1 bg-[#a78b71] rounded-full" />
               <span>Claude Directory</span>
             </div>
-            <h1 className="text-balance font-sans text-hero uppercase font-bold tracking-tighter leading-none">
+            <h1 className="text-balance font-serif text-hero italic font-normal tracking-tight leading-none">
               Claude resources, raw and organized.
             </h1>
             <p className="max-w-3xl text-xl text-muted-foreground">
@@ -27,12 +27,12 @@ export default function Home() {
               fluff.
             </p>
           </div>
-          <nav className="flex flex-wrap gap-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+          <nav className="flex flex-wrap gap-3 text-sm font-medium tracking-normal text-muted-foreground">
             {directorySections.map((section) => (
               <a
                 key={section.slug}
                 href={`#${section.slug}`}
-                className="border-2 border-border px-6 py-3 transition hover:border-foreground hover:bg-foreground hover:text-background"
+                className="border border-[rgba(255,255,255,0.1)] rounded-xl px-6 py-3 transition-all duration-300 hover:border-[#a78b71] hover:text-[#c9b8a0]"
               >
                 {section.title}
               </a>
@@ -44,17 +44,17 @@ export default function Home() {
           <section
             key={section.slug}
             id={section.slug}
-            className="grid gap-8 border-2 border-border bg-card p-12 md:p-16"
+            className="grid gap-8 border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16"
           >
             <div className="grid gap-3">
-              <h2 className="font-sans text-4xl md:text-6xl uppercase font-bold tracking-tight">{section.title}</h2>
+              <h2 className="font-serif text-4xl md:text-6xl italic font-normal tracking-tight">{section.title}</h2>
               <p className="text-base text-muted-foreground">{section.summary}</p>
             </div>
             <div className="grid gap-8">
               {section.groups.map((group, groupIndex) => (
                 <div key={`${section.slug}-${group.title ?? groupIndex}`} className="grid gap-4">
                   {group.title ? (
-                    <h3 className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                    <h3 className="text-sm font-medium tracking-widest text-[#c9b8a0]">
                       {group.title}
                     </h3>
                   ) : null}
@@ -67,7 +67,7 @@ export default function Home() {
                             href={item.href}
                             target={external ? "_blank" : undefined}
                             rel={external ? "noreferrer" : undefined}
-                            className="font-semibold text-foreground transition hover:text-muted-foreground"
+                            className="font-semibold text-foreground transition-colors duration-300 hover:text-[#c9b8a0]"
                           >
                             {item.title}
                           </a>

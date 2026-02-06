@@ -199,15 +199,15 @@ export default function ClaudeCodeBestPracticesPage() {
       title="Best Practices"
       description="Reliable habits and patterns for safe, effective Claude Code development sessions."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Core practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Core practices</h2>
         <div className="grid gap-6">
           {corePractices.map((practice) => (
             <div
               key={practice.title}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-xl">{practice.title}</h3>
+              <h3 className="font-serif italic text-xl">{practice.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 {practice.description}
               </p>
@@ -226,13 +226,13 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Context management</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Context management</h2>
         <div className="grid gap-3">
           {contextManagement.map((item) => (
             <div
               key={item.practice}
-              className=" border-2 border-border p-4"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-xl p-4"
             >
               <div className="font-medium text-sm">{item.practice}</div>
               <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
@@ -241,30 +241,30 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Prompting techniques</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Prompting techniques</h2>
         <div className="grid gap-4">
           {promptingTechniques.map((item) => (
             <div
               key={item.technique}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.technique}</h3>
+              <h3 className="font-serif italic text-lg">{item.technique}</h3>
               <p className="mt-2 text-sm italic text-muted-foreground">{item.example}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Anti-patterns to avoid</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Anti-patterns to avoid</h2>
         <div className="grid gap-4">
           {antiPatterns.map((item) => (
             <div
               key={item.antiPattern}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg text-orange-600/90">{item.antiPattern}</h3>
+              <h3 className="font-serif italic text-lg text-orange-600/90">{item.antiPattern}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Problem: </span>
                 {item.problem}
@@ -278,19 +278,19 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Code quality guidelines</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Code quality guidelines</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {codeQuality.map((item) => (
             <div
               key={item.area}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.area}</h3>
+              <h3 className="font-serif italic text-lg">{item.area}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.practices.map((practice) => (
                   <li key={practice} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{practice}</span>
                   </li>
                 ))}
@@ -300,19 +300,19 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Collaboration practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Collaboration practices</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {collaborationPractices.map((item) => (
             <div
               key={item.scenario}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.scenario}</h3>
+              <h3 className="font-serif italic text-lg">{item.scenario}</h3>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 {item.practices.map((practice) => (
                   <li key={practice} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-foreground/40" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0  bg-[#a78b71] rounded-full" />
                     <span>{practice}</span>
                   </li>
                 ))}
@@ -322,13 +322,13 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Debugging best practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Debugging best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {debuggingBestPractices.map((practice) => (
             <div
               key={practice}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {practice}
             </div>
@@ -336,44 +336,44 @@ export default function ClaudeCodeBestPracticesPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Security practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Security practices</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {securityPractices.map((item) => (
             <div
               key={item.area}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.area}</h3>
+              <h3 className="font-serif italic text-lg">{item.area}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.guideline}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Efficiency tips</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Efficiency tips</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {efficiencyTips.map((item) => (
             <div
               key={item.tip}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.tip}</h3>
+              <h3 className="font-serif italic text-lg">{item.tip}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Related guides</h2>
+      <section className="grid gap-4  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Related guides</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3 text-sm transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
               {item.title}
             </a>

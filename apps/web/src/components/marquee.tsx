@@ -21,7 +21,7 @@ export function MarqueeWrapper({
       speed={speed}
       direction={direction}
       gradient={false}
-      className={cn("border-y-2 border-border bg-accent py-8", className)}
+      className={cn("border-y border-[rgba(255,255,255,0.1)] bg-gradient-to-r from-[rgba(167,139,113,0.05)] via-[rgba(167,139,113,0.1)] to-[rgba(167,139,113,0.05)] py-8", className)}
     >
       {children}
     </Marquee>

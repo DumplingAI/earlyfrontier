@@ -152,28 +152,28 @@ export default function PromptSpecificityWorkflowPage() {
       title="Prompt Specificity"
       description="Write prompts with clear constraints and success criteria."
     >
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Overview</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Overview</h2>
         <p className="text-sm text-muted-foreground">{overview.description}</p>
         <div className=" bg-background/50 p-4">
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground/70 mb-2">
+          <div className="text-xs tracking-widest text-[#c9b8a0]/70 mb-2">
             When to use
           </div>
           <p className="text-sm text-muted-foreground">{overview.when}</p>
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Step-by-step process</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Step-by-step process</h2>
         <div className="grid gap-6">
           {steps.map((item, index) => (
-            <div key={item.step} className=" border-2 border-border p-5">
+            <div key={item.step} className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5">
               <div className="flex items-start gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border-2 border-border bg-background text-xs font-medium">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] rounded-md text-xs font-medium">
                   {index + 1}
                 </span>
                 <div className="flex-1">
-                  <h3 className="font-sans text-lg">{item.step}</h3>
+                  <h3 className="font-serif italic text-lg">{item.step}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
                   <div className="mt-3 rounded-lg bg-background/50 p-3 text-sm italic text-muted-foreground">
                     {item.example}
@@ -185,15 +185,15 @@ export default function PromptSpecificityWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Example prompts</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Example prompts</h2>
         <div className="grid gap-4">
           {examplePrompts.map((item) => (
             <div
               key={item.scenario}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <div className="mb-2 text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
+              <div className="mb-2 text-xs tracking-widest text-[#c9b8a0]/70">
                 {item.scenario}
               </div>
               <p className="text-sm italic text-muted-foreground">"{item.prompt}"</p>
@@ -202,28 +202,28 @@ export default function PromptSpecificityWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Expected outputs</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Expected outputs</h2>
         <div className="grid gap-4">
           {outputs.map((item) => (
             <div
               key={item.output}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.output}</h3>
+              <h3 className="font-serif italic text-lg">{item.output}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Best practices</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Best practices</h2>
         <div className="grid gap-3 text-sm text-muted-foreground">
           {bestPractices.map((practice) => (
             <div
               key={practice}
-              className=" border-2 border-border px-4 py-3"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3"
             >
               {practice}
             </div>
@@ -231,15 +231,15 @@ export default function PromptSpecificityWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Common pitfalls</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Common pitfalls</h2>
         <div className="grid gap-4">
           {commonPitfalls.map((item) => (
             <div
               key={item.pitfall}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg text-orange-600/90">{item.pitfall}</h3>
+              <h3 className="font-serif italic text-lg text-orange-600/90">{item.pitfall}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 <span className="font-medium">Solution: </span>
                 {item.solution}
@@ -249,29 +249,29 @@ export default function PromptSpecificityWorkflowPage() {
         </div>
       </section>
 
-      <section className="grid gap-6  border-2 border-border bg-card p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Pro tips</h2>
+      <section className="grid gap-6  border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] backdrop-blur-[10px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Pro tips</h2>
         <div className="grid gap-4 md:grid-cols-2">
           {tips.map((item) => (
             <div
               key={item.tip}
-              className=" border-2 border-border p-5"
+              className=" border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] rounded-2xl p-5"
             >
-              <h3 className="font-sans text-lg">{item.tip}</h3>
+              <h3 className="font-serif italic text-lg">{item.tip}</h3>
               <p className="mt-2 text-sm italic text-muted-foreground">"{item.example}"</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4  border-2 border-border bg-background/80 p-12 md:p-16">
-        <h2 className="font-sans text-2xl">Related workflows</h2>
+      <section className="grid gap-4  border border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] backdrop-blur-[6px] rounded-3xl p-12 md:p-16">
+        <h2 className="font-serif italic text-2xl">Related workflows</h2>
         <div className="grid gap-3 md:grid-cols-3">
           {related.map((item) => (
             <a
               key={item.title}
               href={item.path}
-              className=" border-2 border-border px-4 py-3 text-sm transition hover:border-foreground/40"
+              className=" border border-[rgba(255,255,255,0.08)] rounded-xl px-4 py-3 text-sm transition hover:border-[#a78b71] hover:text-[#c9b8a0]"
             >
               {item.title}
             </a>
